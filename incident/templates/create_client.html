@@ -1,0 +1,62 @@
+{% extends 'baseEquipe.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="clearfix">
+	<h1 class="h3 mb-3">Liste des techniciens</h1>
+</div>
+
+
+<div class="row">
+	<div class="col-12 col-xl-12">
+		<div class="card">
+			<div class="card-header">
+				<h5 class="card-title">Nouveau Client</h5>
+				<h6 class="card-subtitle text-muted">Formulaire</h6>
+			</div>
+			<div class="card-body">
+				<form  method='POST'  action=''> {% csrf_token %}  
+					<div class="row">
+						<div class="form-group col-12 col-xl-6" >
+							<label class="form-label">Numéro client</label>
+							<input type="text" class="form-control" placeholder="Numéro client" name="numero_client" required>
+						</div>
+						<div class="form-group col-12 col-xl-6">
+							<label class="form-label">Numéro contrat</label>
+							<input type="text" class="form-control" placeholder="Numéro contrat" name="numero_contrat" required>
+						</div>
+					</div>
+					<hr>
+					<div class="row">
+						<div class="form-group col-12 col-xl-12" >
+							<label class="form-label">Dénomination sociale</label>
+							<input type="text" class="form-control" placeholder="Dénomination social" name="denomination_social" required>
+						</div>
+						<div class="form-group col-12 col-xl-12">
+							<label class="form-label">Adresse de facturation</label>
+							<input type="text" class="form-control" placeholder="Adresse de facturation" name="adresse_facturation" required>
+						</div>
+					</div>
+					<hr>
+					<div class="row">
+						<div class="form-group col-12 col-xl-12" >
+							<label class="form-label">Enseigne</label>
+							<input type="text" class="form-control" placeholder="Enseigne" name="enseigne" required>
+						</div>
+						<div class="form-group col-12 col-xl-12">
+							<label class="form-label">Adresse enseigne</label>
+							<input type="text" class="form-control" placeholder="Adresse enseigne" name="adresse_enseigne" required>
+						</div>
+					</div>
+
+					
+					<input style="float: right;" type="submit" class="btn btn-primary" name="create_fiche_client" value="créer une fiche client">
+					
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

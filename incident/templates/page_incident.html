@@ -1,0 +1,377 @@
+{% extends 'baseEquipe.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="row">
+		{% if not info_incident.valider and client %}
+		<div class="col-12 col-lg-12 ">
+		
+		<div class="alert alert-warning alert-outline alert-dismissible" role="alert">
+											<div class="alert-icon">
+												<i class="far fa-fw fa-bell"></i>
+											</div>
+											<div class="alert-message">
+												<strong>L'incident</strong> est en cours de traitement par nos équipes.
+											</div>
+
+											<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+										</div>
+		</div>
+		{% endif %}
+	<div class="col-12 col-lg-7 ">
+		<div class="card">
+			<div class="card-header">
+				<h5 class="card-title">Incident vélo</h5>
+				<h6 class="card-subtitle text-muted">Date : {{info_incident.date_emmision}} <br> Téléphone :{{info_incident.client.utilisateur.filter.0.telephone}}</h6>
+			</div>
+			 
+		
+			
+			<div class="card-body">
+				<div class="mapouter"><div class="gmap_canvas"><iframe width="628" height="457" id="gmap_canvas" src="https://maps.google.com/maps?q={{info_incident.client.adresse_enseigne}}&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.crocothemes.net">crocothemes.net</a></div><style>.mapouter{text-align:center;height:300px;width:100%;}.gmap_canvas {overflow:hidden;background:none!important;height:300px;width:100%;}</style></div>
+			</div>
+
+			<div class="card-body">
+				<a href="{% url 'page_velo' info_incident.velo.id %}">
+					<div class="btn btn-success col-12 " style="margin-bottom: 10px;">LE VELO : {{info_incident.velo.numero_cadre}}</div>
+				</a>
+				<a href="{% url 'page_fiche_client' info_incident.client.id %}">
+					<div class="btn btn-success col-12">LE CLIENT : {{info_incident.client.numero_client}}</div>
+				</a>
+			</div>
+
+		</div>
+	</div>
+
+<style type="text/css">
+    .nom_platb{
+    	font-size: 16px;
+    	margin-top: -65px;
+   		text-transform: uppercase;
+   		margin-left: 5px;
+    	margin-right: 5px;
+    	color: white;
+    	
+    }
+    .description_platb{
+    	font-size: 12px;
+    	margin-top: -16px;
+    	margin-left: 5px;
+    	margin-right: 5px;
+    	color: white;
+    	line-height: 16px;
+    }
+
+	.plat_boisson {
+		opacity: 0.5;
+		height: 61px;
+		width: 100%;
+		outline:none;
+		-webkit-appearance:none;
+		box-shadow:0 0 2px 0px gray inset;
+		cursor: pointer;
+		
+		opacity: 0.9;
+		overflow: hidden;
+	}
+	
+
+	#listmenu{
+        height: auto;
+        overflow: hidden;
+        top:0px;
+        left: 0px;
+        width:100%;
+        margin: 0px auto;
+        position: relative;
+        text-align: center;
+  
+      
+
+    }
+
+    .box{
+    	width: 100%;
+        vertical-align: middle;
+        display: inline-block;
+        overflow: hidden;
+        position: relative;
+        text-align: left;
+        
+      
+        
+    }
+
+</style>
+
+	<div class="col-12 col-lg-5 col-xxl-5 ">
+
+	    <div class="card">
+	        <div class="card-header">
+	            <strong>incident Client</strong><b style="float: right;"></b>
+	        </div>
+	        <form  method='POST'  action=''> {% csrf_token %} 
+		        <div class="card-body card-block" {% if not info_incident.valider %} style="padding: 0px;overflow-y: scroll;height: 490px;" {% else %} style="padding: 0px;overflow-y: scroll;height: 205px;" {% endif %}>
+		            
+		        	<div id="listmenu"> 
+
+						{% for ob in info_incident.incident_client.all %}
+							<div class="box">
+							  <input type="checkbox" class="plat_boisson" name="nothing" value="{{ob.id}}"   style="background-image: url('{{ob.image.url}}') ;background-size: 100%;">
+							  <div style="background-color: black;opacity: 0.8;width: 50%;height: 60px;">
+							  	<p class="nom_platb">{{ob.nom}}</p>
+							  	<p class="description_platb">{{ob.description}}</p>
+							  </div>
+							</div>
+						{% endfor %}
+						
+						
+					</div> 
+	 
+
+		        </div>
+		        
+	        </form>
+	    </div>
+	    {% if info_incident.valider  %}
+	    <div class="card">
+	        <div class="card-header">
+	            <strong>incident Technicien</strong><b style="float: right;"></b>
+	        </div>
+	        <form  method='POST'  action=''> {% csrf_token %} 
+		        <div class="card-body card-block" {% if not info_incident.valider %} style="padding: 0px;overflow-y: scroll;height: 490px;" {% else %} style="padding: 0px;overflow-y: scroll;height: 205px;" {% endif %}>
+		            
+		        	<div id="listmenu"> 
+
+						{% for ob in info_incident.incident_technicien.all %}
+							<div class="box">
+							  <input type="checkbox" class="plat_boisson" name="nothing" value="{{ob.id}}"   style="background-image: url('{{ob.image.url}}') ;background-size: 100%;">
+							  <div style="background-color: black;opacity: 0.8;width: 50%;height: 60px;">
+							  	<p class="nom_platb">{{ob.nom}}</p>
+							  	<p class="description_platb">{{ob.description}}</p>
+							  </div>
+							</div>
+						{% endfor %}
+						
+						
+					</div> 
+	 
+
+		        </div>
+		        
+	        </form>
+	    </div>
+	    {% endif %}
+
+	</div>
+</div>
+
+
+
+<style type="text/css">
+    .nom_platb{
+    	font-size: 16px;
+    	margin-top: -65px;
+   		text-transform: uppercase;
+   		margin-left: 5px;
+    	margin-right: 5px;
+    	color: white;
+    	
+    }
+    .description_platb{
+    	font-size: 12px;
+    	margin-top: -16px;
+    	margin-left: 5px;
+    	margin-right: 5px;
+    	color: white;
+    	line-height: 16px;
+    }
+
+	.plat_boisson2 {
+		opacity: 0.5;
+		height: 61px;
+		width: 100%;
+		outline:none;
+		-webkit-appearance:none;
+		box-shadow:0 0 2px 0px gray inset;
+		cursor: pointer;
+		
+		opacity: 0.9;
+		overflow: hidden;
+	}
+	.plat_boisson2:hover {
+    box-shadow:0 0 200px 0px #25e75d inset;
+	}
+    .plat_boisson2:checked {
+    box-shadow:0 0 200px 0px #25e75d inset;
+   
+	}
+
+	#listmenu2{
+        height: auto;
+        overflow: hidden;
+        top:0px;
+        left: 0px;
+        width:100%;
+        margin: 0px auto;
+        position: relative;
+        text-align: center;
+  
+      
+
+    }
+
+    .box{
+    	width: 100%;
+        vertical-align: middle;
+        display: inline-block;
+        overflow: hidden;
+        position: relative;
+        text-align: left;
+        
+      
+       
+    }
+
+</style>
+
+{% if not client %}
+
+{% if not info_incident.valider %}
+<div class="row">
+	<div class="col-12 col-lg-5 col-xxl-5 ">
+
+	    <div class="card">
+	        <div class="card-header">
+	            <strong>Déclarer un incident</strong><b style="float: right;">{{info_boissonDessert.count}}</b>
+	        </div>
+	        <form  method='POST'  action=''> {% csrf_token %} 
+		        <div class="card-body card-block" style="padding: 0px;overflow-y: scroll;height: 480px;">
+		            
+		        	<div id="listmenu2"> 
+
+						{% for ob in les_type_incident_technicien %}
+							<div class="box">
+							  <input type="radio" required class="plat_boisson2" name="checks" value="{{ob.id}}" required=""  style="background-image: url('{{ob.image.url}}') ;background-size: 100%;">
+							  <div style="background-color: black;opacity: 0.8;width: 50%;height: 60px;">
+							  	<p class="nom_platb">{{ob.nom}}</p>
+							  	<p class="description_platb">{{ob.description}}</p>
+							  </div>
+							</div>
+						{% endfor %}
+						
+						
+					</div> 
+	 
+
+		        </div>
+		        
+	        
+	    </div>
+	</div>
+
+	<div class="col-12 col-lg-7 col-xxl-7 ">
+
+	    <div class="card">
+	        <div class="card-header">
+	            <strong>Réparer le vélo</strong><b style="float: right;">{{info_boissonDessert.count}}</b>
+	        </div>
+	        
+	        <div class="card-body card-block" >
+	        	<input type="text" class="form-control mb-3" name="kilometragein" placeholder="Kilometrage" required="">
+	        	<select name="type_rep" class="form-control mb-3" required="">
+	        		{% for ob in info_reparation %}
+			          <option value="{{ob.0}}">{{ob.0}}</option>
+			        {% endfor %}
+		        </select>
+		        <textarea class="form-control mb-3" name="commentaire" placeholder="Commentaire" rows="7"></textarea>
+		        <input type="submit" value="REPARATION" name="REPARATION" class="btn btn-success" style="width: 100%;">
+		        
+		        </form>
+	    </div>
+	</div>
+</div>
+
+{% endif %}
+
+{% endif %}
+
+<script>
+							document.addEventListener("DOMContentLoaded", function(event) {
+								// Select2
+								$('.select2').each(function() {
+									$(this)
+										.wrap('<div class="position-relative"></div>')
+										.select2({
+											placeholder: 'Fiche client',
+											dropdownParent: $(this).parent()
+										});
+								})
+								// Daterangepicker
+								$('input[name="daterange"]').daterangepicker({
+									opens: 'left'
+								});
+								$('input[name="datetimes"]').daterangepicker({
+									timePicker: true,
+									opens: 'left',
+									startDate: moment().startOf('hour'),
+									endDate: moment().startOf('hour').add(32, 'hour'),
+									locale: {
+										format: 'M/DD hh:mm A'
+									}
+								});
+								$('input[name="datesingle"]').daterangepicker({
+									singleDatePicker: true,
+									showDropdowns: true
+								});
+								var start = moment().subtract(29, 'days');
+								var end = moment();
+
+								function cb(start, end) {
+									$('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+								}
+								$('#reportrange').daterangepicker({
+									startDate: start,
+									endDate: end,
+									ranges: {
+										'Today': [moment(), moment()],
+										'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+										'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+										'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+										'This Month': [moment().startOf('month'), moment().endOf('month')],
+										'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+									}
+								}, cb);
+								cb(start, end);
+							});
+						</script>
+
+						<script>
+		document.addEventListener("DOMContentLoaded", function(event) {
+			// Datatables basic
+			$('#datatables-basic').DataTable({
+				responsive: true,
+				aLengthMenu: [
+        [100, 200, -1],
+        [100, 200, "All"]
+    ],
+			});
+
+			// Datatables with Buttons
+			var datatablesButtons = $('#datatables-buttons').DataTable({
+				lengthChange: !1,
+				buttons: ["copy", "print"],
+				responsive: true
+			});
+			datatablesButtons.buttons().container().appendTo("#datatables-buttons_wrapper .col-md-6:eq(0)")
+		});
+
+	
+    
+
+
+	</script>
+{% endblock %}

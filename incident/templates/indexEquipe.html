@@ -1,0 +1,97 @@
+{% extends 'baseEquipe.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+{% if request.user.is_superuser %}
+<div class="row">
+	<div class="col-12 col-md-6 ">
+		<div class="card flex-fill">
+			<div class="card-body py-6">
+				<div class="row" style="padding: 4rem">
+					<div class="col-12 col-md-6 align-self-center text-center text-md-left">
+						<h4>{{ count_magasin }}</h4>
+						<p class="mb-0">Nombre de clients</p>
+					</div>
+					<div class="col-12 col-md-6 align-self-center text-center text-md-right">
+						<div data-label="{{ count_magasin }}" class="doughnut mt-2 doughnut-primary doughnut-100"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-12 col-md-6 ">
+		<div class="card flex-fill">
+			<div class="card-body py-6">
+				<div class="row" style="padding: 4rem">
+					<div class="col-12 col-md-6 align-self-center text-center text-md-left">
+						<h4>{{ count_velo }}</h4>
+						<p class="mb-0">Nombre de vélos</p>
+					</div>
+					<div class="col-12 col-md-6 align-self-center text-center text-md-right">
+						<div data-label="{{ count_velo }}" class="doughnut mt-2 doughnut-primary doughnut-100"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-12 col-md-6 ">
+		<div class="card flex-fill">
+			<div class="card-body py-6">
+				<div class="row" style="padding: 4rem">
+					<div class="col-12 col-md-6 align-self-center text-center text-md-left">
+						<h4>{{ count_incident_en_cours }}</h4>
+						<p class="mb-0">Nombre d'incidents en cours</p>
+					</div>
+					<div class="col-12 col-md-6 align-self-center text-center text-md-right">
+						<div data-label="{{ count_incident_en_cours }}" class="doughnut mt-2 doughnut-warning doughnut-100"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-12 col-md-6 ">
+		<div class="card flex-fill">
+			<div class="card-body py-6">
+				<div class="row" style="padding: 4rem">
+					<div class="col-12 col-md-6 align-self-center text-center text-md-left">
+						<h4>{{ count_incident_finie }}</h4>
+						<p class="mb-0">Nombre d'incidents résolu</p>
+					</div>
+					<div class="col-12 col-md-6 align-self-center text-center text-md-right">
+						<div data-label="{{ count_incident_finie }}" class="doughnut mt-2 doughnut-success doughnut-100"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+</div>
+
+
+{% else %}
+<div class="row">
+{% for ob in liste_des_magasin %}
+	
+		<div class="col-12 col-md-6 col-lg-4">
+			<a href="{% url 'page_fiche_client' ob.id %}">
+			<div class="card">
+				<img class="card-img-top" src="{% static 'equipe/img/magasin.jpg' %}">
+
+				<div class="card-header"><center>
+					<h5 class="card-title mb-0">{{ob.denomination_social}}</h5></center>
+				</div>
+				
+			</div>
+			</a>
+		</div>
+	
+
+{% endfor %}
+</div>
+	
+{% endif %}
+
+
+{% endblock %}

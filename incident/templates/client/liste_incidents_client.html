@@ -1,0 +1,147 @@
+{% extends 'baseEquipe.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="clearfix">
+    <h1 class="h3 mb-3">Liste des fiches Incidents</h1>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">Liste des fiches Incidents</h5>
+                <h6 class="card-subtitle text-muted">Les fiches client archivées ne sont pas dans la liste.</h6>
+            </div>
+            <div class="card-body">
+                <table id="datatables-basic" class="table table-striped" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Velo</th>
+                            <th>Client</th>
+                            <th>Incident Client</th>
+                            <th class="actions">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for ob in liste_des_incident_F %}
+                        <tr>
+                            <th>{{ob.date_emmision}}</th>
+                            <th>{{ob.velo}}</th>
+                            <th>{{ob.client}}</th>
+                            <th>{% for oa in ob.incident_client.all %} {{oa.nom}}<br> {% endfor %}</th>
+                            
+                            <th>
+                                <a href="{% url 'page_incident' ob.id %}" class="btn btn-icon btn-pill btn-success" data-toggle="tooltip"><i class="fa fa-fw fa-eye"></i></a>
+                            </th>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">Historique des incidents</h5>
+                <h6 class="card-subtitle text-muted">Les fiches client archivées ne sont pas dans la liste.</h6>
+            </div>
+            <div class="card-body">
+                <table id="datatables-basic2" class="table table-striped" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Velo</th>
+                            <th>Client</th>
+                            <th>Incident Client</th>
+                            <th>Incident Technicien</th>
+                            <th>Contact Technicien</th>
+                            <th class="actions">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for ob in liste_des_incident_T %}
+                        <tr>
+                            <th>{{ob.date_emmision}}</th>
+                            <th>{{ob.velo}}</th>
+                            <th>{{ob.client}}</th>
+                            <th>{% for oa in ob.incident_client.all %} {{oa.nom}}<br> {% endfor %}</th>
+                            <th>{% for oa in ob.incident_technicien.all %} {{oa.nom}}<br> {% endfor %}</th>
+                            <th>{{ob.nom_technicien}}</th>
+                            <th>
+                                <a href="{% url 'page_incident' ob.id %}" class="btn btn-icon btn-pill btn-success" data-toggle="tooltip"><i class="fa fa-fw fa-eye"></i></a>
+                            </th>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function(event) {
+            // Datatables basic
+            $('#datatables-basic').DataTable({
+                responsive: true,
+                aLengthMenu: [
+        [100, 200, -1],
+        [100, 200, "All"]
+    ],
+            });
+
+            // Datatables with Buttons
+            var datatablesButtons = $('#datatables-buttons').DataTable({
+                lengthChange: !1,
+                buttons: ["copy", "print"],
+                responsive: true
+            });
+            datatablesButtons.buttons().container().appendTo("#datatables-buttons_wrapper .col-md-6:eq(0)")
+        });
+
+    
+    
+
+
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(event) {
+            // Datatables basic
+            $('#datatables-basic2').DataTable({
+                responsive: true,
+                aLengthMenu: [
+        [100, 200, -1],
+        [100, 200, "All"]
+    ],
+            });
+
+            // Datatables with Buttons
+            var datatablesButtons = $('#datatables-buttons').DataTable({
+                lengthChange: !1,
+                buttons: ["copy", "print"],
+                responsive: true
+            });
+            datatablesButtons.buttons().container().appendTo("#datatables-buttons_wrapper .col-md-6:eq(0)")
+        });
+
+    
+    
+
+
+    </script>
+
+{% endblock %}

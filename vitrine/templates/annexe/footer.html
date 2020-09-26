@@ -1,0 +1,93 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" href="{% static 'vitrine/css/footer.css' %}" />
+				
+<footer class="page-footer font-small indigo all">
+	<!-- Mets la couleur de fond sur toute la page -->
+	<div class="up">
+		<!-- Footer Links -->
+		<div class="container text-center text-md-left ">
+			<!-- Grid row -->
+			<div class="row ligne">
+				<!-- Grid column -->
+				<div class="col-md-4 mx-auto col1" >
+					<!-- Links -->
+					<h5 class="mt-3 mb-4 h5-footer vely">
+						Velyvelo
+					</h5>
+					<ul class="list-unstyled liens_guauche">
+						<li class="liens accueil"><a href="{% url 'indexVitrine' %}">Accueil</a></li>
+						<li class="liens"><a href="{% url 'nos_velos' %}">Nos vélos</a></li>
+						<li class="liens"><a href="{% url 'notre_platforme' %}">Notre platforme</a></li>
+						<li class="liens"><a href="{% url 'notre_societe' %}">Notre société</a></li>
+						<li class="liens"><a href="{% url 'contact' %}">Contact</a></li>
+					</ul>
+				</div>
+				<!-- Grid column -->
+				<hr class="clearfix w-100 d-md-none">
+				<!-- Grid column -->
+				<div class="col-md-4 mx-auto contact">
+					<!-- Links -->
+					<h5 class="mt-3 mb-4 h5-footer contact2">
+						Contact
+					</h5>
+					<ul class="list-unstyled">
+						<li><a href="#!" class="liens bonjour">bonjour@velyvelo.com</a></li>
+					</ul>
+				</div>
+				<!-- Grid column -->
+				<!--Grid column-->
+				<div class="col-md-4 mb-4 newsletter">
+					<h5 class="mt-3 mb-4 h5-footer" >
+						Inscription à la newsletter
+					</h5>
+					<form class="input-group inscription">					<input type="text" class="form-control form-control-sm email" placeholder="adresse email" aria-label="Your email" aria-describedby="basic-addon2">	
+						<input type="image" class="fleche" src="{% static 'vitrine/svg/footer.svg' %}">	
+
+					</form>
+					<!--
+					<div class="footer__newsletter">
+						<form name="formNewsletter" method="post" id="formNewsletter">
+							<div class=" input input--text input--state-normal ">
+								<input type="text" name="email_newsletter" value="" placeholder="Entrez votre email pour recevoir la newsletter" class="input__form-element" id="email_newsletter" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,3}$" title="exemple: nous-on-repond@ekwateur.fr" required="required" maxlength="">
+							</div>
+							<input type="submit" class="align-normal button button--newsletter"id="newsletterFooter" value="Je m&#039;inscris !"/>
+						</form>
+					</div>
+					  -->
+				</div>
+				<!--Grid column-->
+			</div>
+		</div>
+
+		<!-- Mets la couleur de fond sur toute la page -->
+		<div class="down">
+				<center>
+					<!-- Facebook -->
+					<div class="reseaux">
+						<a href="htps://ebrain.fr" class="fb-ic"><i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x reseau"></i></a>
+						<!-- Twitter -->
+						<a class="tw-ic twitter"><i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x reseau"></i></a>
+						<!--Linkedin -->
+						<a class="li-ic"><i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-2x reseau"></i></a>
+					</div>
+					<!-- Grid column -->
+					<!-- Grid row-->
+					<!-- Copyright -->
+					<div class="footer-copyright py-3 last">
+						© VelyVelo 2018
+					</div>
+				</center>
+				<!-- Copyright -->
+			<!-- Footer Elements -->
+		</div>
+
+		<!-- Mets la couleur de fond sur toute la page -->
+	</footer>
+
+
+		            		
+                       
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

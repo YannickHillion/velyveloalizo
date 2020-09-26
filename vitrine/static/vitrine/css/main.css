@@ -1,0 +1,214 @@
+
+@import url('https://fonts.googleapis.com/css?family=Fredoka+One%7CVarela+Round%27');
+.varela
+{
+    font-family: 'Varela Round', sans-serif;
+}
+
+.bgt{
+    position: relative;
+	background: url(../svg/contact_illu_bg.svg);
+	text-align: center;
+	width: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    z-index: 1;
+}
+.bgtb{
+    position: relative;
+	background-image: url(../svg/notre_societe_illu_bg.svg);
+	text-align: center;
+	width: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    z-index: 1;
+}
+.bgt2{
+    position: relative;
+	text-align: center;
+	width: 100%;
+    background-position: center center;
+    z-index: 1;
+    background-color: #f5f8fd;
+}	
+.milieu{
+	position: absolute;
+    top: 25%;
+}
+.imgvv {
+    background-color: #46b594;
+    border-color: #46b594;
+        padding: 50px;
+        
+}
+@media screen and (max-width: 930px){
+        .raison1 {
+            display: none;
+        }
+
+        .raison2 {
+
+            display: block;
+        }
+        .inputt{
+
+    margin-bottom: 10px;
+    padding: 11px;
+    font-size: 13px;
+        }
+        .taille{
+            max-height: 125px;
+        }
+        .ico2{
+            width: 40px;
+            height: 40px;
+        }
+        .text-droite-carousel
+{
+    color: white;
+    line-height: 29px;
+    font-size: 1.8rem;
+    padding-left: 50px;
+}
+    
+    .first-list{
+        line-height: 29px;
+    list-style: square;
+    padding: 28px;
+    }
+.title-gauche-velo
+{
+    font-size: 22px;
+    font-weight: bold;
+    color: #312783;
+    padding-bottom: 1rem;
+}
+
+}
+
+@media screen and (min-width: 930px){
+    .raison1 {
+        display: block;
+    }
+
+    .raison2 {
+        display: none;
+    }
+   .inputt{
+	margin-bottom: 10px;
+	padding: 30px;
+	font-size: 20px;
+    }
+    .inputtt{
+    margin-bottom: 10px;
+    height: 61px;
+    font-size: 19px;
+    }
+    .taille{
+        max-height: 200px;
+    }
+    .ico2{
+        width: 50px;
+        height: 50px;
+    }
+    .text-droite-carousel
+{
+    width: 556px;
+    height: 25rem;
+    margin-bottom: -70px;
+    padding-left: 50px;
+}
+.first-list{
+        line-height: 29px;
+    list-style: square;
+    margin-left: 14.5rem;
+    }
+    .title-gauche-velo
+{
+    font-size: 27px;
+    font-weight: bold;
+    color: #312783;
+    margin-left: 12rem;
+    padding-bottom: 5rem;
+    margin-top: 10rem;
+
+}
+
+
+}
+.poffrevv {
+    font-size: 20px;
+    color: white;
+    font-weight: normal;
+}
+.services {
+    padding: 20px;
+}
+.titrevv {
+    color: white;
+    font-family: 'Fredoka One', sans-serif;
+}
+
+
+
+.h1float{
+	margin-bottom: 10px;
+	float: left;
+	color: #312783;
+	font-family: 'Varela Round', sans-serif;
+}
+.envoyerbtn {
+    font-size: 18px;
+    padding: 10px;
+    padding-right: 30px;
+    padding-left: 30px;
+    color: white;
+    background-color: #312783;
+    border-radius: 50px;
+    margin-bottom: 15px;
+    margin-top: 20px;
+    border: none;
+}
+@media screen and (min-width: 1350px) {
+  .bgt {
+    background-size: cover;
+  }
+}
+@media screen and (min-width: 1500px) {
+  .bgt {
+    height: 486px;
+  }
+}
+@media screen and (max-width: 1500px) {
+  .bgt {
+    height: 349px;
+  }
+}
+@media screen and (min-width: 1350px) {
+  .bgtb {
+    background-size: cover;
+  }
+}
+@media screen and (min-width: 1500px) {
+  .bgtb {
+    height: 486px;
+  }
+}
+@media screen and (max-width: 1500px) {
+  .bgtb {
+    height: 349px;
+  }
+}
+
+
+
+
+
+.ico2 {
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+    margin-right: 8px;
+    margin-bottom: 8px;
+}

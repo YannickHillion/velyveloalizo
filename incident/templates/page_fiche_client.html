@@ -1,0 +1,316 @@
+{% extends 'baseEquipe.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="row">
+	<div {% if technicien %} class="col-12 col-lg-12 " {% else %} class="col-12 col-lg-7 " {% endif %}>
+		<div class="card">
+			<div class="card-header">
+				<h5 class="card-title">Fiche client</h5>
+				<h6 class="card-subtitle text-muted">Informations</h6>
+			</div>
+			<div class="card-body">
+				<form  method='POST' id="formulaire_up_del" action=''> {% csrf_token %}  
+					<div class="row">
+						<div class="form-group col-12 col-xl-6" >
+							<label class="form-label">Numéro client</label>
+							<input type="text" class="form-control" value="{{info_fiche_client.numero_client}}" name="numero_client" required>
+						</div>
+						<div class="form-group col-12 col-xl-6">
+							<label class="form-label">Numéro contrat</label>
+							<input type="text" class="form-control" value="{{info_fiche_client.numero_contrat}}" name="numero_contrat" required>
+						</div>
+					</div>
+					<hr>
+					<div class="row">
+						<div class="form-group col-12 col-xl-12" >
+							<label class="form-label">Dénomination sociale</label>
+							<input type="text" class="form-control" value="{{info_fiche_client.denomination_social}}" name="denomination_social"  required>
+						</div>
+						<div class="form-group col-12 col-xl-12">
+							<label class="form-label">Adresse de facturation</label>
+							<input type="text" class="form-control" value="{{info_fiche_client.adresse_facturation}}" name="adresse_facturation" required>
+						</div>
+					</div>
+					<hr>
+					<div class="row">
+						<div class="form-group col-12 col-xl-12" >
+							<label class="form-label">Enseigne</label>
+							<input type="text" class="form-control" value="{{info_fiche_client.enseigne}}" name="enseigne" required>
+						</div>
+						<div class="form-group col-12 col-xl-12">
+							<label class="form-label">Adresse enseigne</label>
+							<input type="text" class="form-control" value="{{info_fiche_client.adresse_enseigne}}" name="adresse_enseigne" required>
+						</div>
+					</div>
+
+					{% if request.user.is_superuser %}
+					<div class="bg-white" style="float: right;">
+			        	<input type="text"  readonly="readonly" style="width: 100px; " onclick="valider()" class="btn btn-danger" name="supprfiche" value="Archiver" >
+			        	
+			            <input type="submit" class="btn btn-success" name="majour" value="Mettre à jour">
+	        		</div>
+	        		{% endif %}
+					
+				</form>
+			</div>
+		</div>
+	</div>
+
+	{% if not technicien %}
+	<div class="col-12 col-lg-5 col-xxl-5">
+		<div class="card">
+			<div class="card-header">
+				<h5 class="card-title">Client associé</h5>
+				<h6 class="card-subtitle text-muted">Les clients archivés ne sont pas dans la liste.</h6>
+			</div>
+			<div class="card-body" style="overflow: hidden;">
+				<table id="datatables-basic" class="table table-striped" style="width:100%">
+					<thead>
+						<tr>
+							<th>Nom</th>
+							<th>Prénom</th>
+							<th class="actions">Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for ob in liste_utilisateur_client %}
+						<tr>
+							<th>{{ob.nom}}</th>
+							<th>{{ob.prenom}}</th>
+
+							<th>
+								<form  method='POST' action=''> {% csrf_token %}  
+									<input type="hidden" name="mail_remove" value="{{ob.mail}}">
+									<input type="submit" class="btn btn-icon btn-pill btn-danger" name="remove_utilisateur" value="Suprimer">
+								</form>
+                        	</th>
+						</tr>
+						{% endfor %}
+					</tbody>
+					
+				</table>
+
+				<hr>
+				<form  method='POST'  action=''> {% csrf_token %} 
+
+
+					 
+						<input type="text" class="form-control mb-2 mr-sm-2 " name="prenom" id="inlineFormInputName2" required placeholder="Prénom">
+
+						<input type="text" required class="form-control mb-2  mr-sm-2" id="inlineFormInputName2" name="nom" placeholder="Nom">
+
+						<input type="text" required class="form-control mb-2  mr-sm-2" id="inlineFormInputName2" name="telephone" placeholder="telephone">
+					
+						<label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+						<div class="input-group mb-2 mr-sm-2">
+							<div class="input-group-prepend">
+								<div class="input-group-text">@</div>
+							</div>
+							<input required type="text" class="form-control" id="inlineFormInputGroupUsername2" name="mail" placeholder="mail">
+						</div>
+
+						<input type="submit" name="ajouter_client" value="Ajouter" class="btn btn-primary mb-2 col-12">
+					
+				</form>
+								
+			</div>
+		</div>
+	</div>
+	{% endif %}
+</div>
+
+{% if request.user.is_superuser %}
+<div class="row">
+	<div class="col-12">
+		<div class="card">
+			<div class="card-header">
+				<h5 class="card-title">Liste des Vélos</h5>
+				<h6 class="card-subtitle text-muted">Les fiches client archivées ne sont pas dans la liste.</h6>
+			</div>
+			<div class="card-body" style="overflow: hidden;">
+				<table id="datatables-basic2" class="table table-striped" style="width:100%">
+					<thead>
+						<tr>
+							<th>Marque</th>
+							<th>Model</th>
+							<th>Kilométrage</th>
+							
+							<th class="actions"></th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for ob in liste_mes_velo %}
+						<tr>
+							<th>{{ob.marque}}</th>
+							<th>{{ob.modele}}</th>
+							<th>{{ob.kilometrage}}</th>
+							<th>
+								
+                            	<a style="float: right;margin-left: 6px;" href="{% url 'page_velo' ob.id %}" class="btn btn-icon btn-pill btn-success" data-toggle="tooltip"><i class="fa fa-fw fa-eye"></i></a>
+                            	{% if request.user.is_superuser %}
+                            	<form  method='POST' action='' style="float: right;"> {% csrf_token %}  
+									<input type="hidden" name="mes_velo_remove" value="{{ob.id}}">
+									<input type="submit" class="btn btn-icon btn-pill btn-danger" name="remove_velo" value="retirer">
+								</form>
+								{% endif %}
+
+                        	</th>
+						</tr>
+
+						{% endfor %}
+					</tbody>
+					
+				</table>
+				{% if request.user.is_superuser %}
+				<hr>
+				<form  method='POST'  action=''> {% csrf_token %} 
+
+
+					 
+					<div class="row">
+						<div class="col-12 col-xl-3">
+							
+								<input class="form-control" type="date" required name="date_debut" />
+							
+						</div>
+						<div class="col-12 col-xl-3">
+							
+								<input class="form-control"  type="date" required name="date_fin" />
+							
+						</div>
+						<div class="col-12 col-xl-3">
+							<select class="form-control select2" data-toggle="select2" required name="mes_velo">
+					              {% for ob in liste_des_velo %}
+					              <option value="{{ob.id}}">{{ob.numero_cadre}}</option>
+					              {% endfor %}
+          						</select>		
+							</div>
+						<input type="submit" name="ajouter_velo" value="Ajouter" class="btn btn-primary col-12 col-xl-3">
+
+					</div>
+
+						
+
+						
+					
+				</form>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</div>
+{% endif %}
+
+<script type="text/javascript"> 
+function valider() 
+{ 
+if (confirm('Êtes vous sur de vouloir archiver ce client ? ')) 
+{ 
+document.getElementById('formulaire_up_del').submit(); 
+} 
+} 
+
+</script>
+<script>
+							document.addEventListener("DOMContentLoaded", function(event) {
+								// Select2
+								$('.select2').each(function() {
+									$(this)
+										.wrap('<div class="position-relative"></div>')
+										.select2({
+											placeholder: 'Select value',
+											dropdownParent: $(this).parent()
+										});
+								})
+								// Daterangepicker
+								$('input[name="daterange"]').daterangepicker({
+									opens: 'left'
+								});
+								$('input[name="datetimes"]').daterangepicker({
+									timePicker: true,
+									opens: 'left',
+									startDate: moment().startOf('hour'),
+									endDate: moment().startOf('hour').add(32, 'hour'),
+									locale: {
+										format: 'M/DD hh:mm A'
+									}
+								});
+								$('input[name="datesingle"]').daterangepicker({
+									singleDatePicker: true,
+									showDropdowns: true
+								});
+								var start = moment().subtract(29, 'days');
+								var end = moment();
+
+								function cb(start, end) {
+									$('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+								}
+								$('#reportrange').daterangepicker({
+									startDate: start,
+									endDate: end,
+									ranges: {
+										'Today': [moment(), moment()],
+										'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+										'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+										'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+										'This Month': [moment().startOf('month'), moment().endOf('month')],
+										'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+									}
+								}, cb);
+								cb(start, end);
+							});
+						</script>
+
+						<script>
+		document.addEventListener("DOMContentLoaded", function(event) {
+			// Datatables basic
+			$('#datatables-basic').DataTable({
+				responsive: true,
+				aLengthMenu: [
+        [100, 200, -1],
+        [100, 200, "All"]
+    ],
+			});
+
+			// Datatables with Buttons
+			var datatablesButtons = $('#datatables-buttons').DataTable({
+				lengthChange: !1,
+				buttons: ["copy", "print"],
+				responsive: true
+			});
+			datatablesButtons.buttons().container().appendTo("#datatables-buttons_wrapper .col-md-6:eq(0)")
+		});
+
+	
+    
+
+
+	</script>
+	<script>
+		document.addEventListener("DOMContentLoaded", function(event) {
+			// Datatables basic
+			$('#datatables-basic2').DataTable({
+				responsive: true,
+				aLengthMenu: [
+        [100, 200, -1],
+        [100, 200, "All"]
+    ],
+			});
+
+			// Datatables with Buttons
+			var datatablesButtons = $('#datatables-buttons').DataTable({
+				lengthChange: !1,
+				buttons: ["copy", "print"],
+				responsive: true
+			});
+			datatablesButtons.buttons().container().appendTo("#datatables-buttons_wrapper .col-md-6:eq(0)")
+		});
+
+	
+    
+
+
+	</script>
+{% endblock %}

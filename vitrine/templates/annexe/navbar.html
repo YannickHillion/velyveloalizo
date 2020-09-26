@@ -1,0 +1,83 @@
+{% load staticfiles %}
+
+<header class="header header--normal">
+    <div class="container">
+        <a href="{% url 'indexVitrine' %}"><img width="356" height="84" src="{% static 'vitrine/img/vvlogo.png' %}" class="header__logo"></a>
+        <div class="header__menu">
+            <div class="header__menu__customer-area fas fa-phone" style="color: #312783;">
+                <b style="font-family: 'Fredoka One', sans-serif; font-weight: normal;">09 77 40 66 66</b>
+            </div>
+            <a href="{% url 'contact' %}" class="icon icon--magnifier header__menu__faq">Une question ?</a>
+            <a href="{% url 'indexEquipe' %}" target="_blank" class="icon fas fa-user-circle header__menu__customer-area" style="color: #312783;"><b style="font-family: 'Fredoka One', sans-serif; font-weight: normal;">Mon espace client</b></a>
+        </div>
+        <nav class="header__nav">
+            <a href="{% url 'indexVitrine' %}" class="header__nav__link header__nav__link--subscribe ">Accueil</a>
+            <a href="{% url 'nos_velos' %}" class="header__nav__link">Nos vélos</a>
+            <a style="cursor: pointer;" class="header__nav__link">Nos offres</a>
+            <a href="{% url 'notre_societe' %}" class="header__nav__link">Notre société</a>
+            <a href="{% url 'notre_platforme' %}" class="header__nav__link">Notre platforme</a>
+            <a href="{% url 'contact' %}" class="header__nav__link">Contact</a>
+        </nav>
+    </div>
+    <div class="header__submenu" style="display: none;"></div>
+    <div class="header__submenu">
+        <div class="container">
+            <a href="{% url 'restauration' %}" class="header__submenu__link " style="width: 16%;">
+                <span><img style="width: 165px;" src="{% static 'vitrine/svg/offre_restauration.svg' %}"></span>
+                <b>Restauration</b>
+            </a>
+            <a href="{% url 'livreur_auto' %}" class="header__submenu__link "  style="width: 16%;">
+                <span><img style="width: 130px;" src="{% static 'vitrine/svg/offre_livreur.svg' %}"></span>
+                <b>Livreur <br>auto-entrepreuneur</b>
+            </a>
+            <a href="{% url 'foodtech' %}" class="header__submenu__link "  style="width: 16%;">
+                <span><img style="width: 130px;" src="{% static 'vitrine/svg/offre_foodtech.svg' %}"></span>
+                <b>Foodtech</b>
+            </a>
+            <a href="{% url 'immobilier' %}" class="header__submenu__link "  style="width: 16%;">
+                <span><img style="width: 130px;" src="{% static 'vitrine/svg/offre_immobilier.svg' %}"></span>
+                <b>Immobilier</b>
+            </a>
+             <a href="{% url 'entreprises_particuliers' %}" class="header__submenu__link "  style="width: 16%;">
+                <span><img style="width: 130px;" src="{% static 'vitrine/svg/offre_entreprise.svg' %}"></span>
+                <b>Entreprises & Particuliers</b>
+            </a>
+        </div>
+    </div>
+</header>
+
+
+
+<div class="header--mobile">
+    <div class="header--mobile__wrapper">
+        <a href="{% url 'indexVitrine' %}"><img width="356" height="auto" src="{% static 'vitrine/img/vvlogo.png' %}" class="header--mobile__wrapper__logo"></a>
+        <a href="https://velyvelo.com/dms" class="icon icon--before icon--user header__menu__customer-area"></a>
+        <div class="icon icon--before icon--help header__menu__customer-area header__menu__customer-area_mobile tel"></div>
+        <div class="header--mobile__wrapper__burger"></div>
+    </div>
+    <div class="header--mobile__menu">
+        <div class="header--mobile__menu__close"></div>
+        <div class="container">
+            <ul class="header--mobile__menu__link">
+                <a href="{% url 'nos_velos' %}">Nos vélos</a>
+            </ul>
+            <ul class="header--mobile__menu__link">
+                Nos offres
+                <li class="header--mobile__menu__link__sublink "><a href="{% url 'restauration' %}">Restauration</a></li>
+                <li class="header--mobile__menu__link__sublink "><a href="{% url 'livreur_auto' %}">Livreur auto-entrepreneur</a></li>
+                <li class="header--mobile__menu__link__sublink "><a href="{% url 'foodtech' %}">Foodtech</a></li>
+                <li class="header--mobile__menu__link__sublink "><a href="{% url 'immobilier' %}">Immobiliser</a></li>
+                <li class="header--mobile__menu__link__sublink "><a href="{% url 'entreprises_particuliers' %}">Entreprises & Particuliers</a></li>
+            </ul>
+            <ul class="header--mobile__menu__link">
+                <a href="{% url 'notre_societe' %}">Notre société</a>
+            </ul>
+            <ul class="header--mobile__menu__link">
+                <a href="{% url 'notre_platforme' %}">Notre platforme</a>
+            </ul>
+            <ul class="header--mobile__menu__link">
+                <a href="{% url 'contact' %}">Contact</a>
+            </ul>
+        </div>
+    </div>
+</div>

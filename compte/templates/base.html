@@ -1,0 +1,109 @@
+{% load staticfiles %}
+
+<!doctype html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block head_title %}{% endblock %}</title>
+    {% block extra_head %}
+    {% endblock %}
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122465126-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-122465126-1');
+    </script>
+
+    <link rel="stylesheet" href="{% static '/compte/css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static '/compte/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static '/compte/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static '/compte/css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static '/compte/css/flag-icon.min.css' %}">
+    <link rel="stylesheet" href="{% static '/compte/css/cs-skin-elastic.css' %}">
+    <link rel="stylesheet" href="{% static '/compte/css/style.css' %}">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+
+  </head>
+
+
+  <body class="bg-dark">
+
+    <style type="text/css">
+      
+      h2
+      {
+        margin-bottom: 20px;
+        text-align:  center;
+      }
+
+      form label
+      {
+        display: inline-block;
+        text-align: left;
+      }
+
+      form input[type=text], input[type=password], input[type=email]
+      {
+        width:100%;
+        color : #495057;
+        padding: .375rem .75rem;
+        font-size: 1rem; 
+        line-height: 1.5;
+        border-radius: .25rem;
+        border: 1px solid #ced4da;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+      }
+
+      form input[type=text]:focus, input[type=password]:focus, input[type=email]:focus
+      {
+        border-color: rgb(128,189,255);
+        box-shadow:rgba(0, 123, 255, 0.25) 0px 0px 0px 3.2px;
+      }
+
+      #id_remember
+      {
+        width: 13px;
+        height: 13px;
+
+      }
+
+    </style>
+    
+    <div class="sufee-login d-flex align-content-center flex-wrap">
+      <div class="container">
+        <div class="login-content">
+                <div class="login-logo">
+                    <a href="{% url 'indexEquipe' %}">
+                        <img class="align-content" style="width : 50%;" src="{% static 'equipe/img/logo.png' %}" alt="">
+                    </a>
+                </div>
+                <h5 style="color: white;font-weight: bold;margin: 10px;text-align: center;">Delivery Management System</h5>
+                <div class="login-form">
+    {% block body %}
+
+    {% if messages %}
+    <div>
+	{% for message in messages %}
+	 <div class="alert alert-success" role="alert">
+                {{message}}
+            </div>
+	{% endfor %}
+    </div>
+    {% endif %}
+
+  
+    {% block content %}
+    {% endblock %}
+    {% endblock %}
+    {% block extra_body %}
+    {% endblock %}
+  </div>
+  </div>
+  </div>
+  </div>
+  </body>
+</html>

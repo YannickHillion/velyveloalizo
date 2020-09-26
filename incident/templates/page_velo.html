@@ -1,0 +1,308 @@
+{% extends 'baseEquipe.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="row">
+	<div class="col-12 col-lg-7 ">
+		<div class="card">
+			<div class="card-header">
+				<h5 class="card-title">VELO</h5>
+				<h6 class="card-subtitle text-muted">Informations</h6>
+			</div>
+			<div class="card-body">
+				<form  method='POST' id="formulaire_up_del" action=''> {% csrf_token %}  
+					 
+					<div class="row">
+						<div class="form-group col-12 col-xl-3" >
+							<label class="form-label">Marque</label>
+							<input type="text" class="form-control" value="{{info_velo.marque}}" name="marque" required>
+						</div>
+						<div class="form-group col-12 col-xl-3">
+							<label class="form-label">Modèle</label>
+							<input type="text" class="form-control" value="{{info_velo.modele}}" name="modele" required>
+						</div>
+						<div class="form-group col-12 col-xl-3">
+							<label class="form-label">Date création</label>
+							<input type="date" class="form-control" value="{{info_velo.date_velo|date:'c'}}" name="date_velo" required>
+						</div>
+						<div class="form-group col-12 col-xl-3">
+							<label class="form-label">Kilométrage</label>
+							<input type="text" class="form-control" value="{{info_velo.kilometrage}}" name="kilometrage" required>
+						</div>
+					</div>
+					<hr>
+				
+					<div class="row">
+						<div class="form-group col-12 col-xl-12" >
+							<label class="form-label">Numéro cadre</label>
+							<input type="text" class="form-control" value="{{info_velo.numero_cadre}}" name="numero_cadre" required>
+						</div>
+						<div class="form-group col-12 col-xl-6">
+							<label class="form-label">N° moteur</label>
+							<input type="text" class="form-control" value="{{info_velo.numero_moteur}}" name="numero_moteur" required>
+						</div>
+						<div class="form-group col-12 col-xl-6">
+							<label class="form-label">N° Baterie</label>
+							<input type="text" class="form-control" value="{{info_velo.numero_battrie}}" name="numero_battrie" required>
+						</div>
+						<div class="form-group col-12 col-xl-6">
+							<label class="form-label">N° bicycode</label>
+							<input type="text" class="form-control" value="{{info_velo.numero_bicycode}}" name="numero_bicycode" required>
+						</div>
+						<div class="form-group col-12 col-xl-6">
+							<label class="form-label">N° GPS</label>
+							<input type="text" class="form-control" value="{{info_velo.numero_gps}}" name="numero_gps" required>
+						</div>
+						<div class="form-group col-12 col-xl-6">
+							<label class="form-label">N° clé av</label>
+							<input type="text" class="form-control" value="{{info_velo.numero_cles_av}}" name="numero_cles_av" required>
+						</div>
+						<div class="form-group col-12 col-xl-6">
+							<label class="form-label">N° clé bt</label>
+							<input type="text" class="form-control" value="{{info_velo.numero_cles_bt}}" name="numero_cles_bt" required>
+						</div>
+					</div>
+					<hr>
+					
+						
+					{% if request.user.is_superuser %}
+					<div class="bg-white" style="float: right;">
+			        	<input type="text"  readonly="readonly" style="width: 100px; " onclick="valider()" class="btn btn-danger" name="supprfiche" value="Archiver" >
+			        	
+			            <input type="submit" class="btn btn-success" name="majour" value="Mettre à jour">
+	        		</div>
+	        		{% endif %}
+					
+				</form>
+			</div>
+		</div>
+	</div>
+
+<style type="text/css">
+    .nom_platb{
+    	font-size: 16px;
+    	margin-top: -65px;
+   		text-transform: uppercase;
+   		margin-left: 5px;
+    	margin-right: 5px;
+    	color: white;
+    	
+    }
+    .description_platb{
+    	font-size: 12px;
+    	margin-top: -16px;
+    	margin-left: 5px;
+    	margin-right: 5px;
+    	color: white;
+    	line-height: 16px;
+    }
+
+	.plat_boisson {
+		opacity: 0.5;
+		height: 61px;
+		width: 100%;
+		outline:none;
+		-webkit-appearance:none;
+		box-shadow:0 0 2px 0px gray inset;
+		cursor: pointer;
+		
+		opacity: 0.9;
+		overflow: hidden;
+	}
+	.plat_boisson:hover {
+    box-shadow:0 0 200px 0px #25e75d inset;
+	}
+    .plat_boisson:checked {
+    box-shadow:0 0 200px 0px #25e75d inset;
+   
+	}
+
+	#listmenu{
+        height: auto;
+        overflow: hidden;
+        top:0px;
+        left: 0px;
+        width:100%;
+        margin: 0px auto;
+        position: relative;
+        text-align: center;
+  
+      
+
+    }
+
+    .box{
+    	width: 100%;
+        vertical-align: middle;
+        display: inline-block;
+        overflow: hidden;
+        position: relative;
+        text-align: left;
+        
+      
+       
+    }
+
+</style>
+
+	<div class="col-12 col-lg-5 col-xxl-5 ">
+
+	    <div class="card">
+	        <div class="card-header">
+	            <strong>Déclarer un incident</strong><b style="float: right;">{{info_boissonDessert.count}}</b>
+	        </div>
+	        <form  method='POST'  action=''> {% csrf_token %} 
+		        <div class="card-body card-block" style="padding: 0px;overflow-y: scroll;height: 480px;">
+		            
+		        	<div id="listmenu"> 
+
+						{% for ob in les_type_incident_client %}
+							<div class="box">
+							  <input type="radio" class="plat_boisson" name="checks" value="{{ob.id}}"   style="background-image: url('{{ob.image.url}}') ;background-size: 100%;">
+							  <div style="background-color: black;opacity: 0.8;width: 50%;height: 60px;">
+							  	<p class="nom_platb">{{ob.nom}}</p>
+							  	<p class="description_platb">{{ob.description}}</p>
+							  </div>
+							</div>
+						{% endfor %}
+						
+						
+					</div> 
+	 
+
+		        </div>
+		        <div class="card-footer">
+		        	<input type="submit" value="Envoyer" name="Envoyer" class="btn btn-success" style="width: 100%;">
+		        </div>
+	        </form>
+	    </div>
+	</div>
+</div>
+
+
+
+
+<div class="row">
+	<div class="col-12">
+		<div class="card">
+			<div class="card-header">
+				<h5 class="card-title">Liste des Incidents</h5>
+				
+			</div>
+			<div class="card-body" style="overflow: hidden;">
+				<table id="datatables-basic" class="table table-striped" style="width:100%">
+					<thead>
+						<tr>
+							<th>Date</th>
+							<th>incident client</th>
+							<th>indent technicien</th>
+							<th class="actions">Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for ob in liste_des_incident %}
+						<tr>
+							<th>{{ob.date_emmision}}</th>
+							<th>{% for ab in ob.incident_client.all %} {{ab.nom}}<br>{% endfor %}</th>
+							<th>{% for ab in ob.incident_technicien.all %} {{ab.nom}}<br>{% endfor %}</th>
+							<th>
+                            	<a href="{% url 'page_incident' ob.id %}" class="btn btn-icon btn-pill btn-success" data-toggle="tooltip"><i class="fa fa-fw fa-eye"></i></a>
+                        	</th>
+						</tr>
+						{% endfor %}
+					</tbody>
+					
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript"> 
+function valider() 
+{ 
+if (confirm('Êtes vous sur de vouloir archiver ce client ? ')) 
+{ 
+document.getElementById('formulaire_up_del').submit(); 
+} 
+} 
+
+</script>
+
+<script>
+							document.addEventListener("DOMContentLoaded", function(event) {
+								// Select2
+								$('.select2').each(function() {
+									$(this)
+										.wrap('<div class="position-relative"></div>')
+										.select2({
+											placeholder: 'Fiche client',
+											dropdownParent: $(this).parent()
+										});
+								})
+								// Daterangepicker
+								$('input[name="daterange"]').daterangepicker({
+									opens: 'left'
+								});
+								$('input[name="datetimes"]').daterangepicker({
+									timePicker: true,
+									opens: 'left',
+									startDate: moment().startOf('hour'),
+									endDate: moment().startOf('hour').add(32, 'hour'),
+									locale: {
+										format: 'M/DD hh:mm A'
+									}
+								});
+								$('input[name="datesingle"]').daterangepicker({
+									singleDatePicker: true,
+									showDropdowns: true
+								});
+								var start = moment().subtract(29, 'days');
+								var end = moment();
+
+								function cb(start, end) {
+									$('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+								}
+								$('#reportrange').daterangepicker({
+									startDate: start,
+									endDate: end,
+									ranges: {
+										'Today': [moment(), moment()],
+										'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+										'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+										'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+										'This Month': [moment().startOf('month'), moment().endOf('month')],
+										'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+									}
+								}, cb);
+								cb(start, end);
+							});
+						</script>
+
+						<script>
+		document.addEventListener("DOMContentLoaded", function(event) {
+			// Datatables basic
+			$('#datatables-basic').DataTable({
+				responsive: true,
+				aLengthMenu: [
+        [100, 200, -1],
+        [100, 200, "All"]
+    ],
+			});
+
+			// Datatables with Buttons
+			var datatablesButtons = $('#datatables-buttons').DataTable({
+				lengthChange: !1,
+				buttons: ["copy", "print"],
+				responsive: true
+			});
+			datatablesButtons.buttons().container().appendTo("#datatables-buttons_wrapper .col-md-6:eq(0)")
+		});
+
+	
+    
+
+
+	</script>
+{% endblock %}

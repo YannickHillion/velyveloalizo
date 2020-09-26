@@ -1,0 +1,392 @@
+ @import url('https://fonts.googleapis.com/css?family=Fredoka+One');
+ @import url('https://fonts.googleapis.com/css?family=Fredoka+One|Varela+Round');
+
+.velobouge {
+    top: -170px;
+    width: 200px;
+    height: 200px;  
+    position: relative;
+    animation: slidein 10s linear 1s infinite running;
+}
+
+.velobougeb {
+    top: -150px;
+    width: 200px;
+    height: 200px;  
+    position: relative;
+    animation: slideinb 15s linear 1s infinite running;
+}
+
+#desktop {
+    display: block;
+}
+#mobil{
+    display: none;
+}
+
+.varela{
+    font-family: 'Varela Round', sans-serif;
+}
+.border-line
+{
+    margin-top: 120px;
+    border: 2px solid #00a997;
+    border-radius: 0.5rem;
+    padding: 0 0 2rem 0;
+}
+.titre-icone
+{
+    margin-top: -1.2%;
+    margin-bottom: 30px;
+    font-size: 27px;
+    position: relative;
+    background-color: white;
+    color:#46B594; 
+    margin-left: auto;
+    margin-right: auto;
+}
+.icone-block
+{
+    height: 335px;
+}
+.icone-block-1
+{
+    margin-left: 8.5%;
+}
+.icone-5pt-essentiels
+{
+    margin-top: 50px;
+    height: 100px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+.image-platforme
+{
+    height: 78px;
+    margin-top: 70px;
+}
+.titre-secondaire-icone
+{
+    color: #FABC45;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.text-icone
+{
+    color: #7F7F7F;
+    text-align: center;
+}
+.bouton-icone
+{
+    margin-bottom: -3.5%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    background-color: white;
+}
+.btnrouge
+{
+    padding: 15px;
+    color: white;
+    background-color: #EC5C41;
+    border-radius: 50px;
+    box-shadow: 1px 3px 13px -4px rgba(0,0,0,1);
+    font-size: 15px;
+    
+}
+.box1
+{
+    margin: 20px;
+    padding-top: 150px !important;
+    padding: 20px;
+    background-repeat: no-repeat;
+    background-size: 200px;
+    width: 250px;
+    height: 250px;
+    transition: transform .2s;
+
+}
+.box_cont2
+{
+    margin-right: 20px;
+    margin-left: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+.title-last-container
+{
+    font-size: 27px;
+    font-weight: bold;
+    color: #000000;
+    padding-bottom: 5rem;
+    margin-top: 10rem;
+}
+.btn-icone
+{
+    margin-right: -50px;
+}
+.btn-icone:hover
+{
+    color:black;
+}
+.block
+{
+    padding: 50px;
+}
+
+.fredoka
+{
+    font-family:  'Fredoka One', sans-serif;
+}
+
+#conteneur{
+    display:flex;
+    background-color: #F5F8FD;
+}
+
+.element{
+    background-color: white;
+    margin-top: 12%;
+    margin-bottom: 5%;
+    box-shadow: 1px 1px 12px #dad8e4;
+}
+.temoignage-container
+{
+    background-color: #F4F7FC;
+    margin-bottom: -30px;
+}
+.title-temoignage
+{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    position: relative;
+    font-size: 27px;
+    font-weight: bold;
+    color: #000000;
+    margin-left: auto;
+    margin-right: auto;
+}
+.block-temoignage
+{
+    background-color: white;
+    margin: 20px;
+}
+.div-icone-enseigne
+{
+    width: 100%;
+    height: 104px;
+}
+.icone-enseigne
+{
+    width: 60%;
+}
+
+.guillemets
+{
+    width: 7%;
+}
+.image-personne-temoignage
+{
+    width: 125%;
+}
+.nom-enseigne
+{
+    color:#EB5B40;
+}
+.vert
+{
+    display: none;
+    background-color: #46B594;
+}
+.titre-vert
+{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: white;
+    font-size: 150%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.text-vert
+{
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+}
+.temoignage-container-mobile
+{
+    display: none;
+    background-color: #F4F7FC;
+    margin-bottom: -30px;
+}
+.btn-temoignage
+{
+
+    padding: 18px;
+    font-size: 15px;
+    width: 259px;
+    height: 59px;
+    color: white;
+    background-color: #EC5C42;
+    border-radius: 50px;
+    margin-top: 20px;
+    -webkit-box-shadow: 1px 10px 24px -6px rgba(49,39,131,0.43);
+-moz-box-shadow: 1px 10px 24px -6px rgba(49,39,131,0.43);
+box-shadow: 1px 10px 24px -6px rgba(49,39,131,0.43);
+        margin-bottom: 30px;
+
+}
+@media(max-width: 767px)
+{
+    .border-line
+    {
+        border:none;
+        margin-top: -50px;
+    }
+    .icone-block-1
+    {
+        margin-left: 0px;
+    }
+    .icone-md-g
+    {
+        margin-left: 0px;
+    }
+    .icone-block
+    {
+        height: 100%;
+    }
+}
+@media(max-width: 768px) and (min-width: 576px)
+{
+    .block-temoignage
+    {
+        margin-left: 9.5%;
+    }
+}
+@media(max-width: 576px)
+{
+    .div-icone-xs
+    {
+        margin-left: 40px;
+    }
+    .titre-secondaire-icone
+    {
+        text-align: start;
+        margin-top: 70px;
+
+    }
+    .text-icone
+    {
+        text-align: start;
+    } 
+}
+@media(max-width: 992px) and (min-width: 768px)
+{
+    .icone-md-g
+    {
+        margin-left: 8.5%;
+    }
+}
+@media(max-width: 576px)
+{
+    .image-platforme
+    {
+        width: 120%;
+    }
+    .btnrouge
+    {
+        margin-top: 20px;
+    }  
+}
+@media(max-width: 992px) and (min-width: 576px)
+{
+    .image-platforme
+    {
+        width: 132px;
+    }
+     
+}
+@media(max-width: 930px){
+    #desktop {
+        display: none;
+    }
+    #mobil{
+        display: block;
+    }
+    .velobouge {
+        top: -175px;
+        width: 150px;
+        height: 150px;  
+        position: relative;
+        animation: slidein 10s linear 1s infinite running;
+      }
+
+    .velobougeb {
+        top: -160px;
+        width: 150px;
+        height: 150px;  
+        position: relative;
+        animation: slideinb 15s linear 1s infinite running;
+    }
+    .jaune-vert
+    {
+        display: none;
+    }
+    .vert
+    {
+        display: block;
+    }
+    .temoignage-container
+    {
+        display: none;
+    }
+    .temoignage-container-mobile
+    {
+        display: block;
+    }
+    .block-temoignage
+    {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .carousel-indicators li {
+        background-color: #322783;
+    }
+
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 100px;
+  outline: #322783;
+  }
+
+.carousel-control-next-icon:after
+{
+  content: '>';
+  font-size: 55px;
+  color: #322783;
+}
+
+.carousel-control-prev-icon:after {
+  content: '<';
+  font-size: 55px;
+  color: #322783;
+}
+
+
+@keyframes slidein {
+  0%   {left:-200px; }
+  100% {left:110%; }
+}
+
+@keyframes slideinb {
+  0%   {left:160%; }
+  100% {left:-400px; }
+}

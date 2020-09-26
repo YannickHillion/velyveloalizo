@@ -1,0 +1,274 @@
+.down{
+	background-color: rgb(61,61,61);
+	padding: 30px;
+}
+
+.last{
+	color: white;
+}
+
+.up{
+	background-color: rgb(43,43,43);
+}
+
+.h5-footer{
+	color: rgb(255,255,255);
+	font-family: 'Fredoka One', cursive;
+	font-size: 23px;
+	margin-top: 45px!important;
+	margin-bottom: 10px!important;
+	font-weight: 1!important;
+
+}
+
+.liens{
+	color: rgb(149,149,149);
+	line-height: 30px;
+	margin-bottom: 4%;
+	margin-left:40px;
+}
+
+.ligne{
+	margin-bottom: 3%;
+}
+
+.col1{
+	margin-top: 2%;
+}
+
+.accueil{
+	margin-top:5%;
+}
+
+.reseau{
+	color:white;	
+}
+
+.twitter{
+	margin-right: 2%;
+	margin-left: 2%; 
+
+}
+
+.fleche{
+	width: 11%;
+    position: absolute;
+    margin-left: 83%;
+    margin-top: 2%;
+}
+
+.liens_guauche{
+	margin-left: 4%;
+}
+
+.bonjour{
+	margin-top:5%;
+}
+
+.email{
+	padding:23px;
+	width: 90px; 
+	font-size: 91%;
+}
+
+.inscription{
+	width: 102%;
+}
+
+.reseaux{
+	margin-left: 42px; 
+	margin-bottom: 2%; 
+	margin-top: 1%; 
+	color: red
+}
+
+.contact{
+	margin-top: 2%;
+}
+
+.contact2{
+	margin-left: -3%;
+	font-size: 23px;
+}
+
+.newsletter{
+	margin-top: 2%;
+	font-size: 23px;
+}
+
+@media all and (min-width: 768px) and (max-width: 1024px){
+	.fleche{
+		width: 13%;
+    	position: absolute;
+    	margin-left: 84%;
+    	margin-top: 2%;
+    }
+
+    .liens_guauche{
+    	margin-left: 20%;
+    }
+
+    .vely{
+    	margin-left: 18%;
+    }
+
+}
+
+@media all and (min-width: 587px) and (max-width: 767px){
+
+	.vely{
+		margin-left: -1%;
+	}
+
+	.liens_guauche{
+		margin-left: 0%;
+	}
+
+	.liens{
+		margin-left: 1px;
+		line-height: 8px;
+	}
+
+	.contact2{
+		margin-left: 0%;
+		font-size: 23px;
+	}
+
+	.email{
+		padding: 13px;
+	}
+
+	.fleche{
+		width: 9%;
+    	position: absolute;
+    	margin-left: 84%;
+    	margin-top: 1%;
+	}
+
+	.contact{
+		margin-top: -11%;
+	}
+
+	.inscription{
+		width: 64%;
+    	margin-left: 18%;
+	}
+
+	.reseaux {
+    	margin-left: 5px;
+	}
+}
+
+@media all and (min-width: 426px) and (max-width: 586px){
+	.liens_guauche{
+		margin-left: -8%;
+	}
+
+	.contact2{
+		margin-left: 0%;
+	}
+
+	.fleche{
+		    width: 9%;
+    	position: absolute;
+    	margin-left: 84%;
+    	margin-top: 1%;
+	}
+
+	.contact {
+    margin-top: -14%;
+	}
+
+	.inscription{
+		width: 79%;
+    	margin-left: 11%;
+	}
+
+	.reseaux {
+    	margin-left: 5px;
+	}
+
+	.bonjour {
+    	margin-top: 5%;
+    	margin-left: 0%;
+	}
+
+	.liens{
+		line-height: 19px;
+	}
+
+}
+
+@media all and (min-width: 321px) and (max-width: 425px){
+
+	.twitter{
+		margin-right: 8%;
+    	margin-left: 8%;
+	}
+
+	.fleche{
+		width: 15%;
+    	position: absolute;
+    	margin-left: 77%;
+    	margin-top: 4%;
+	}
+
+	.liens_guauche{
+		margin-left: -10%;
+	}
+
+	.email{
+		height: 83%;
+	}
+
+	.inscription{
+		height: 48%;
+    	margin-bottom: 19%;
+	}
+
+	.reseaux{
+		margin-left: 6px;
+    	margin-bottom: 6%;
+    	margin-top: 2%;
+	}
+
+	.contact{
+		margin-top: -19%;
+	}
+
+	.contact2{
+		margin-left: 0%;
+	}
+
+	.bonjour {
+    	margin-top: 5%;
+    	margin-left: 0%;
+	}
+}
+
+
+@media(max-width: 320px){
+	.fleche{
+    	width: 15%;
+    	margin-left: 79%;
+    	margin-top: 1%;
+	}
+
+	.contact{
+		margin-top:-26%;
+	}
+
+	.twitter{
+		margin-right: 11%;
+    	margin-left: 11%;
+	}
+
+	.bonjour {
+    	margin-top: 5%;
+    	margin-left: 0%;
+	}
+
+	.liens_guauche{
+		margin-left: -10%;
+	}
+}

@@ -1,0 +1,102 @@
+
+{% extends 'baseEquipe.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+
+
+
+
+<div class="clearfix">
+	<h1 class="h3 mb-3">Les Types De Réparation</h1>
+</div>
+
+
+<div class="row">
+	<div class="col-12 col-xl-5">
+		<div class="card">
+			<div class="card-header">
+				<h5 class="card-title">Les Types De Réparation</h5>
+				<h6 class="card-subtitle text-muted">Les Types De Réparation</h6>
+			</div>
+			<div class="card-body">
+				<form  method='POST' enctype="multipart/form-data"  action=''> {% csrf_token %}  
+
+					{{ formdevis }}
+					<br>
+					<input style="float: right;" type="submit" value="Ajouter un incident" name="client_incident" class="btn btn-success btn-sm">
+						  	
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="col-7">
+		<div class="card">
+			<div class="card-header">
+				<h5 class="card-title">Liste des types</h5>
+				<h6 class="card-subtitle text-muted">Les Types De Réparation</h6>
+			</div>
+			<div class="card-body">
+				<table id="datatables-basic" class="table table-striped" style="width:100%">
+					<thead>
+						<tr>
+							<th>Image</th>
+							<th>Nom</th>
+							<th>Description</th>
+							<th>Prix</th>
+							<th class="actions">Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for ob in liste_incident_technicien %}
+						<tr>
+							<th><img src="{{ob.image.url}}" style="width: 50px;height: 50px;"></th>
+							<th>{{ob.nom}}</th>
+							<th>{{ob.description}}</th>
+							<th>{{ob.prix}}</th>
+							<th>
+                            	<form  method='POST' action=''> {% csrf_token %}  
+									<input type="hidden" name="incident_remove" value="{{ob.id}}">
+									<input type="submit" class="btn btn-icon btn-pill btn-danger" name="remove_incident" value="Suprimer">
+								</form>
+                        	</th>
+						</tr>
+						{% endfor %}
+					</tbody>
+					
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+		document.addEventListener("DOMContentLoaded", function(event) {
+			// Datatables basic
+			$('#datatables-basic').DataTable({
+				responsive: true,
+				aLengthMenu: [
+        [100, 200, -1],
+        [100, 200, "All"]
+    ],
+			});
+
+			// Datatables with Buttons
+			var datatablesButtons = $('#datatables-buttons').DataTable({
+				lengthChange: !1,
+				buttons: ["copy", "print"],
+				responsive: true
+			});
+			datatablesButtons.buttons().container().appendTo("#datatables-buttons_wrapper .col-md-6:eq(0)")
+		});
+
+	
+    
+
+
+	</script>
+
+{% endblock %}
+
+

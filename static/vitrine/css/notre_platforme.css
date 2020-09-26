@@ -1,0 +1,128 @@
+.video{
+	width: 70%;
+    margin-left: 15%;
+}
+
+.tableau{
+	margin-left: 18%;
+    margin-top: 1%;
+    width: 65%;
+    margin-bottom: 10%;
+    border: 3px solid #322783;
+    background-color: #bdc6d6;
+}
+
+.lignes{
+	height: 55px;
+	border-bottom: 2px solid #322783;
+}
+
+.spell{
+	font-size: 61px;
+    color: #322783;
+    margin-left: 30px;
+    margin-right: 36px;
+    margin-top: 36px;
+}
+
+.fredoka
+{
+    font-family:  'Fredoka One', sans-serif;
+}
+
+.varela{
+    font-family: 'Varela Round', sans-serif;
+}
+
+
+.textes{
+	margin-top: -24px;
+	color: #322783;
+}
+
+.all{
+	background-color: #f5f8fd;
+}
+
+.titre{
+	color: #322783;
+	font-size: 170%;
+	margin-top: 10%;
+    margin-left: 42%;
+    margin-bottom: 5%;
+}
+
+.border2{
+	border:none;
+}
+
+@media all and (min-width: 857px) and (max-width: 930px){
+	.spell{
+		margin-top: 65px;
+	}
+}
+
+@media all and (min-width: 597px) and (max-width: 856px){
+	.spell{
+		margin-top: 72px;
+	}
+
+	.titre{
+		color: #322783;
+		font-size: 170%;
+		margin-top: 10%;
+    	margin-left: 38%;
+    	margin-bottom: 5%;
+	}
+
+
+}
+
+@media all and (min-width: 426px) and (max-width: 596px){
+	.spell{
+		margin-top: 144px;
+	}
+}
+
+@media all and (min-width: 376px) and (max-width: 425px){
+
+	.spell{
+		margin-top: 366px;
+	}
+
+	.titre{
+		color: #322783;
+		font-size: 170%;
+		margin-top: 10%;
+    	margin-left: 28%;
+    	margin-bottom: 5%;
+	}
+}
+
+@media(max-width: 375px){
+	.spell{
+		margin-top: 406px;
+	}
+
+	.titre{
+		color: #322783;
+		font-size: 170%;
+		margin-top: 10%;
+    	margin-left: 21%;
+    	margin-bottom: 5%;
+	}
+
+	.tableau{
+		margin-left: 8%;
+    	margin-top: 1%;
+    	width: 65%;
+    	margin-bottom: 10%;
+    	border: 3px solid #322783;
+    	background-color: #bdc6d6;
+	}
+}
+
+
+
+
+

@@ -1,0 +1,82 @@
+{% extends 'baseEquipe.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="clearfix">
+	<h1 class="h3 mb-3">Liste des vélos</h1>
+</div>
+
+
+
+
+<div class="row">
+	<div class="col-12">
+		<div class="card">
+			<div class="card-header">
+				<h5 class="card-title">Liste des vélos</h5>
+				<h6 class="card-subtitle text-muted">Les vélos archivés ne sont pas dans la liste.</h6>
+			</div>
+			<div class="card-body">
+				<table id="datatables-basic" class="table table-striped" style="width:100%">
+					<thead>
+						<tr>
+							<th>Nom du vélo</th>
+							<th>Modèle</th>
+							<th>Date création</th>
+							<th>N° cadre</th>
+							<th>kilométrage</th>
+							<th class="actions">Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for ob in liste_des_velo %}
+						<tr>
+							<th>{{ob.marque}}</th>
+							<th>{{ob.modele}}</th>
+							<th>{{ob.date_velo}}</th>
+							<th>{{ob.numero_cadre}}</th>
+							<th>{{ob.kilometrage}}</th>
+							<th>
+                            	<a href="{% url 'page_velo' ob.id %}" class="btn btn-icon btn-pill btn-success" data-toggle="tooltip"><i class="fa fa-fw fa-eye"></i></a>
+                        	</th>
+						</tr>
+						{% endfor %}
+					</tbody>
+					
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+	<script>
+		document.addEventListener("DOMContentLoaded", function(event) {
+			// Datatables basic
+			$('#datatables-basic').DataTable({
+				responsive: true,
+				aLengthMenu: [
+        [100, 200, -1],
+        [100, 200, "All"]
+    ],
+			});
+
+			// Datatables with Buttons
+			var datatablesButtons = $('#datatables-buttons').DataTable({
+				lengthChange: !1,
+				buttons: ["copy", "print"],
+				responsive: true
+			});
+			datatablesButtons.buttons().container().appendTo("#datatables-buttons_wrapper .col-md-6:eq(0)")
+		});
+
+	
+    
+
+
+	</script>
+
+{% endblock %}

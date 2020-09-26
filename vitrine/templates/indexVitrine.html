@@ -1,0 +1,482 @@
+{% extends 'baseVitrine.html' %}
+{% load staticfiles %}
+
+
+{% block seopage %}
+<title>VELYVELO - Location de vélo électrique</title>
+{% endblock %}
+
+
+{% block linkpage %}
+<link rel="stylesheet" href="{% static 'vitrine/css/velyvelo_index.css' %}" />
+{% endblock %}
+
+
+{% block content %}
+
+<!-- Les vélos qui bougent -->
+<div class="homepage-intro" id="desktop" style="margin-bottom: -18rem;">
+    <div class="homepage-intro__content" style="height: 75%;">
+        <div class="valign">
+            <div class="valign__middle">
+                <h1 class="text text--title-0" style="color: #312783;    font-family: 'Fredoka One', sans-serif; font-weight: normal;">Dites bonjour à la mobilité électrique !</h1><br>
+                <h2 class="text text--title-2" id="rte_info" style="color: #312783;">VelyVelo, mise à disposition et gestion de flottes <br>de véhicules à assistance éléctrique !</h2><br><br>
+                <div class="bt__homepage__devis">
+                    <a class="align-normal  button button--valid" style="background-color: #EC5C41;border-color:#EC5C41; box-shadow: 1px 3px 13px -4px rgba(0,0,0,1);text-transform: uppercase;" href="{% url 'contact' %}" id="prouve-le-moi-2"  target="_self">Je souhaite être contacté</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <img src="{% static 'vitrine/svg/hp_illu_bg.svg' %}" >
+    <div>
+        <img class="velobouge" src="{% static 'vitrine/gif/hp_cycliste_coursier.gif' %}">
+        <img class="velobougeb" src="{% static 'vitrine/gif/hp_cycliste_business_woman.gif' %}">
+    </div>
+</div>
+
+<div class="homepage-intro" id="mobil" >
+    <div class="homepage-intro__content" style="height: 75%;margin-top: 100px;">
+        <div class="valign">
+            <div class="valign__middle">
+                <h1 class="text text--title-0" style="color: #312783;    font-family: 'Fredoka One', sans-serif; font-weight: normal;">Dites bonjour à la mobilité électrique !</h1><br>
+                <h2 class="text text--title-2" id="rte_info" style="color: #312783;">VelyVelo, mise à disposition et gestion de flottes <br>de véhicules à assistance éléctrique !</h2>
+                <div class="bt__homepage__devis">
+                    <a class="align-normal  button button--valid" style="background-color: #EC5C41;border-color:#EC5C41;box-shadow: 1px 3px 13px -4px rgba(0,0,0,1);text-transform: uppercase;" href="{% url 'contact' %}" id="prouve-le-moi-2"  target="_self">Je souhaite être contacté</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <img height="650" src="{% static 'vitrine/svg/hp_illu_bg_mobile.svg' %}" >
+    <div>
+        <img class="velobouge" src="{% static 'vitrine/gif/hp_cycliste_coursier.gif' %}">
+        <img class="velobougeb" src="{% static 'vitrine/gif/hp_cycliste_business_woman.gif' %}">
+    </div>
+</div>
+
+<div class="container border-line">
+    
+        <div class="row">
+            <div class="col-lg-4 col-md-4 titre-icone fredoka" >
+                <center>
+                    <h1>Les 5 points essentiels</h1>
+                </center>
+                
+            </div>
+        </div>
+    
+        <div class="row">
+            
+            <div class="col-lg-2 col-md-5 icone-block icone-block-1">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-3 div-icone-xs">
+                            <img src="{% static 'vitrine/svg/hp_icones_duree.svg' %}" class="icone-5pt-essentiels">
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-6">
+                            <h2 class="fredoka titre-secondaire-icone">Location Longue Durée</h2>
+                            <p class="text-icone varela">Un vélo pour une durée qui me convient !</p>
+                        </div>
+                    </div>
+            </div>
+
+            <div class="col-lg-2 col-md-5 icone-block">
+                <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-3 div-icone-xs">
+                            <img src="{% static 'vitrine/svg/hp_icones_localisation.svg' %}" class="icone-5pt-essentiels">
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-6">
+                            <h2 class="fredoka titre-secondaire-icone">Assurance vol incluse</h2>
+                            <p class="text-icone varela">Des vélos suivis en temps réel !</p>
+                        </div>
+                    </div>
+            </div>
+
+            <div class="col-lg-2 col-md-5 icone-block icone-md-g">
+                <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-3 div-icone-xs">
+                            <img src="{% static 'vitrine/svg/hp_icones_maintenance.svg' %}" class="icone-5pt-essentiels">
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-6">
+                            <h2 class="fredoka titre-secondaire-icone">Maintenance incluse</h2>
+                            <p class="text-icone varela">Une maintenance régulière au rythme de votre activité !</p>
+                        </div>
+                    </div>
+            </div>
+
+            <div class="col-lg-2 col-md-5 icone-block">
+                <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-3 div-icone-xs">
+                            <img src="{% static 'vitrine/svg/hp_icones_accompagnement.svg' %}" class="icone-5pt-essentiels">
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-6">
+                            <h2 class="fredoka titre-secondaire-icone">Accompagnement</h2>
+                            <p class="text-icone varela">Mettre en place, c'est bien, accompagner et suivre, c'est mieux !</p>
+                        </div>
+                    </div>            
+            </div>
+
+            <div class="col-lg-2 col-md-10 icone-block icone-md-g">
+                <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-3 div-icone-xs">
+                            <center>
+                                <img src="{% static 'vitrine/img/platforme.png' %}" class="icone-5pt-essentiels image-platforme">
+                            </center>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-6">
+                            <h2 class="fredoka titre-secondaire-icone">Une platforme dédiée</h2>
+                            <p class="text-icone varela">Gérez simplement votre flotte grâce à notre platforme !</p>
+                        </div>
+                    </div>    
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-7 bouton-icone fredoka" >
+               
+                <a href="/contact">
+                    <p class="text-center btnrouge">VOUS VOULEZ TESTER ?</p>
+                </a>
+                
+            </div>
+        </div>
+
+</div>
+</div>
+
+<div class="container-fluid jaune-vert" style="margin-top: 40px;">
+    <img src="{% static 'vitrine/svg/hp_forme_vert_jaune.svg' %}" style="height: 446px; width: 122%;margin-top: 50px;position: absolute;">
+    <div class="row">
+        <div class="col-lg-5 col-md-5" style="margin-top: 140px;">
+            <div class="col-lg-12 col-md-10">
+                <h3 class="fredoka" style="color: white; width: 460px;font-size: 150%; margin-left: 10%;"> Passez aux vélos à assistance électrique avec VelyVelo </h3>
+            </div>
+            <div class="varela col-lg-12 col-md-10">
+                <p style="color: white; margin-left: 10%;margin-top: 40px;">Velyvelo propose un concept de Location Longue Durée de vélos à assistance électrique, accompagné d'un service complet pour les professionnels.<br></p>
+                <p style="color: white; margin-left: 10%;margin-top: 20px;">
+                De l'assurance à la répartition en passant par la formation, les équipes VelyVelo vous accompagne et vous conseille à chaque étape.</p>
+            </div>
+        </div>
+        <div class="col-lg-7 col-md-7">
+            <center>
+                <img src="{% static 'vitrine/svg/hp_illu_velo.svg' %}" style="width: 400px;">
+            </center>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid vert" style="margin-top: 50px;">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 titre-vert fredoka">
+            <h3>Passez aux vélos à assistance électrique avec VelyVelo</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-vert varela">
+            <p>Velyvelo propose un concept de Location Longue Durée de vélos à assistance électrique, accompagné d'un service complet pour les professionnels.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-vert varela">
+            <p>De l'assurance à la répartition en passant par la formation, les équipes VelyVelo vous accompagne et vous conseille à chaque étape.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Les offres dédiées au métier -->
+<section style="margin-top: 13%;">
+
+    <h1 class="text-center title-last-container fredoka"> Notre offre dédiée à votre métier:</h1>
+
+
+      <div class="box_cont2">
+
+            <a href="/nos_offres/restauration" class="btn-icone">
+            <div class="box1" style="background-image: url({% static 'vitrine/svg/offre_restauration.svg' %}); background-size: 245px;">
+              <div class="block fredoka" style="margin-left: -35px;">
+                  <p>Restauration</p>
+              </div>
+            </div>
+            </a>
+
+            <a href="/nos_offres/livreur_auto-entrepreneur" class="btn-icone">
+            <div class="box1" style="background-image: url({% static 'vitrine/svg/offre_livreur.svg' %});">
+              <div class="block fredoka" style="margin-left: -26px;width: 250px;">
+                  <p>Livreur auto-entrepreneur</p>
+              </div>
+            </div>
+            </a>
+
+            <a href="/nos_offres/foodtech" class="btn-icone">
+            <div class="box1" style="background-image: url({% static 'vitrine/svg/offre_foodtech.svg' %});">
+              <div class="block fredoka" style="    margin-left: -4px;">
+                  <p>Foodtech</p>
+              </div>
+            </div>
+            </a>
+
+            <a href="/nos_offres/immobilier" class="btn-icone">
+            <div class="box1" style="background-image: url({% static 'vitrine/svg/offre_immobilier.svg' %});">
+              <div class="block fredoka" style="margin-left: -12px;">
+                  <p>Immobilier</p>
+              </div>
+            </div>
+            </a>
+
+            <a href="/nos_offres/entreprises_particuliers" class="btn-icone">
+            <div class="box1" style="background-image: url({% static 'vitrine/svg/offre_entreprise.svg' %});">
+              <div class="block fredoka" style="    margin-left: -20px;">
+                  <p>Entreprises & Particuliers</p>
+              </div>
+            </div>
+            </a>
+
+
+      </div>
+</section>
+
+<div class="container-fluid temoignage-container">
+
+    <div class="row">
+        <div class="col-lg-12 title-temoignage fredoka">
+            <center>
+                <h1>Ils nous font confiance</h1>
+            </center>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-10 col-12 block-temoignage" style="margin-left: auto;">
+            <div class="div-icone-enseigne">
+                <center>
+                    <img src="{% static 'vitrine/img/dominos.jpg' %}" class="icone-enseigne">
+                </center>
+            </div>
+            <img src="{% static 'vitrine/img/guillemets.png' %}" class="guillemets">
+            <p class="varela" style="color:#7F7F7F;">
+                Plus jamais je ne repasserai au scooter ! Les équipes VelyVelo nous ont acompagné pour trouver la bonne formule sur une des zones de livraison les plus étendu du réseau !
+            </p>
+            <hr>
+            <div class="fredoka">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-3">
+                        <img src="{% static 'vitrine/img/homme_pizza.png' %}" class="image-personne-temoignage">
+                    </div>
+                    <div class="col-lg-9 col-md-9 col-sm-9 col-3">
+                        <h1>Ozgur</h1>
+                        <h1 class="nom-enseigne">Franchisé Domino's Pizza</h1>
+                    </div>
+                </div>  
+            </div>
+        </div> 
+        <div class="col-lg-3 col-md-3 col-sm-10 col-xs-12 block-temoignage">
+            <div class="div-icone-enseigne">
+                <center>
+                    <img src="{% static 'vitrine/img/dominos.jpg' %}" class="icone-enseigne">
+                </center>
+            </div>
+            <img src="{% static 'vitrine/img/guillemets.png' %}" class="guillemets">
+            <p class="varela" style="color:#7F7F7F;">
+                Avec Velyvelo, j'ai surtout amélioré la santé financière de mes magasins en remplaçant des scooters couteux en maintenance et surtout de moins en moins adaptés à nos enjeux
+                d'image auprès de la clientèle.
+            </p>
+            <hr>
+            <div class="fredoka">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-3">
+                        <img src="{% static 'vitrine/img/femme_pizza.png' %}" class="image-personne-temoignage">
+                    </div>
+                    <div class="col-lg-9 col-md-9 col-sm-9 col-9">
+                        <h1>Ludovic</h1>
+                        <h1 class="nom-enseigne">Franchisé Domino's Pizza</h1>
+                    </div>
+                </div>   
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-10 col-xs-12 block-temoignage" style="margin-right: auto;">
+            <div class="div-icone-enseigne">
+                <center>
+                    <img src="{% static 'vitrine/img/pizza.png' %}" class="icone-enseigne" style="width: 23%;margin-top: 20px;">
+                </center>
+            </div>
+            <img src="{% static 'vitrine/img/guillemets.png' %}" class="guillemets">
+            <p class="varela" style="color:#7F7F7F;">
+                Le vélo à assistance électrique me facilite la vie au niveau des recrutements. Plus besoin du BSR pour qu'un livreur puisse conduire ! Et surtout, des discussions moins longues avec mes assureurs !
+            </p>
+            <hr>
+            <div class="fredoka">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-3">
+                        <img src="{% static 'vitrine/img/homme_pizza_hut.png' %}" class="image-personne-temoignage">
+                    </div>
+                    <div class="col-lg-9 col-md-9 col-sm-9 col-9">
+                        <h1>Amin</h1>
+                        <h1 class="nom-enseigne">Franchisé Pizza Hut</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="col-lg-4 col-md-6 col-sm-3 col-3" style="margin-left: auto;margin-right: auto;">
+                    <a href="/temoignages">
+                        <center>
+                            <p class="text-center btn-temoignage">EN VOIR D'AVANTAGE</p>
+                        </center>
+                    </a>
+                </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid temoignage-container-mobile">
+
+    <div class="row">
+        <div class="col-lg-12 title-temoignage fredoka">
+            <center>
+                <h1>Ils nous font confiance</h1>
+            </center>
+        </div>
+    </div>
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="col-md-8 col-sm-8 col-8 block-temoignage">
+                <div class="div-icone-enseigne">
+                    <center>
+                        <img src="{% static 'vitrine/img/pizza.png' %}" class="icone-enseigne" style="    width: 16%; margin-top: 37px;">
+                    </center>
+                </div>
+                <img src="{% static 'vitrine/img/guillemets.png' %}" class="guillemets" style="width: 7%;">
+                <p class="varela" style="color:#7F7F7F;">
+                    Le vélo à assistance électrique me facilite la vie au niveau des recrutements. Plus besoin du BSR pour qu'un livreur puisse conduire ! Et surtout, des discussions moins longues avec mes assureurs !
+                </p>
+                <hr>
+                <div class="fredoka">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-3">
+                            <img src="{% static 'vitrine/img/homme_pizza_hut.png' %}" class="image-personne-temoignage" style="margin-top:0px;">
+                        </div>
+                        <div class="col-lg-9 col-md-9 col-sm-9 col-9">
+                            <h1>Amin</h1>
+                            <h1 class="nom-enseigne">Franchisé Pizza Hut</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+          <div class="col-md-8 col-sm-8 col-8 block-temoignage">
+                <div class="div-icone-enseigne">
+                    <center>
+                        <img src="{% static 'vitrine/img/dominos.jpg' %}" class="icone-enseigne" style="width: 40%;">
+                    </center>
+                </div>
+                <img src="{% static 'vitrine/img/guillemets.png' %}" class="guillemets" style="width: 7%;">
+                <p class="varela" style="color:#7F7F7F;">
+                    Avec Velyvelo, j'ai surtout amélioré la santé financière de mes magasins en remplaçant des scooters couteux en maintenance et surtout de moins en moins adaptés à nos enjeux
+                    d'image auprès de la clientèle.
+                </p>
+                <hr>
+                <div class="fredoka">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-3">
+                            <img src="{% static 'vitrine/img/femme_pizza.png' %}" class="image-personne-temoignage" style="margin-top:0px;">
+                        </div>
+                        <div class="col-lg-9 col-md-9 col-sm-9 col-9">
+                            <h1>Ludovic</h1>
+                            <h1 class="nom-enseigne">Franchisé Domino's Pizza</h1>
+                        </div>
+                    </div>   
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+          <div class="col-md-8 col-sm-8 col-8 block-temoignage">
+                <div class="div-icone-enseigne">
+                    <center>
+                        <img src="{% static 'vitrine/img/dominos.jpg' %}" class="icone-enseigne" style="width: 40%;">
+                    </center>
+                </div>
+                <img src="{% static 'vitrine/img/guillemets.png' %}" class="guillemets" style="width: 7%;">
+                <p class="varela" style="color:#7F7F7F;">
+                    Plus jamais je ne repasserai au scooter ! Les équipes VelyVelo nous ont acompagné pour trouver la bonne formule sur une des zones de livraison les plus étendu du réseau !
+                </p>
+                <hr>
+                <div class="fredoka">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-3">
+                            <img src="{% static 'vitrine/img/homme_pizza.png' %}" class="image-personne-temoignage" style="margin-top:0px;" >
+                        </div>
+                        <div class="col-lg-9 col-md-9 col-sm-9 col-9">
+                            <h1>Ozgur</h1>
+                            <h1 class="nom-enseigne">Franchisé Domino's Pizza</h1>
+                        </div>
+                    </div>  
+                </div>
+            </div> 
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="col-lg-3 col-md-6 col-sm-10 col-12" style="margin-left: auto; margin-right: auto;">
+                <a href="/temoignages">
+                    <center>
+                        <p class="text-center btn-temoignage">EN VOIR D'AVANTAGE</p>
+                    </center>
+                </a>
+            </div>     
+        </div>
+    </div>
+</div>
+
+<!-- Les chiffres -->
+<section style="background-color: #322783;">
+    <div class="container">
+        <div class="row" style="margin-bottom: -1px;margin-top: 30px;">
+            <div class="col-12 col-md-6" style="margin-top: 7%; margin-bottom: 5%;">
+                <div class="thumbnail text-center" style="border-color: #f0f0f5;">
+                    <img src="{% static 'vitrine/svg/hp_icone_velo.svg' %}" style="width: 18%;">
+                    <h1 class="fredoka" style="text-shadow: #EC5B40 0.05em 0.07em 0em;font-size:42px;color: white; margin-bottom: 2%;">506 400</h1>                   
+                    <p class="varela" style="font-size: 20px;color: white">de km parcourus par nos vélos</p>   
+                </div>
+            </div>
+            <div class="col-12 col-md-6" style="margin-top: 7%; margin-bottom: 5%;">
+                <div class="thumbnail text-center" style="border-color: #f0f0f5">
+                    <img src="{% static 'vitrine/svg/hp_icone_monde.svg' %}" style="width: 18%;">
+                    <h1 class="fredoka" style="text-shadow: #EC5B40 0.05em 0.07em 0em;font-size: 42px;color: white; margin-bottom: 2%;">30 384 000</h1>                   
+                    <p class="varela" style="font-size: 20px;color: white">de C02 en moins</p>                                 
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+{% endblock %}
+
+
+{% block scriptpage %}
+
+{% endblock %}
+
+

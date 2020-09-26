@@ -1,0 +1,220 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Application Web - Velyvelo">
+	<meta name="author" content="Ebrain">
+
+	<title>Application Web - Velyvelo</title>
+	<link rel="icon" type="image/x-icon" href="{% static 'equipe/img/icone.ico' %}" />
+	<link href="{% static 'equipe/css/app.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="d-flex">
+			<nav class="sidebar sidebar-sticky">
+				<div class="sidebar-content">
+					<a class="sidebar-brand" href="{% url 'indexEquipe' %}">
+            <img width="100%" src="{% static 'equipe/img/logo.png' %}">
+          </a>
+
+					<ul class="sidebar-nav">
+
+						{% if request.user.is_superuser %}
+						<li class="sidebar-header">
+							Générale
+						</li>
+						<li class="sidebar-item active">
+							<a href="{% url 'indexEquipe' %}" class="sidebar-link">
+                			<i class="align-middle" data-feather="home"></i> <span class="align-middle">Dashboard</span>
+              				</a>
+						</li>
+
+						<li class="sidebar-header">
+							Client
+						</li>
+
+						<li class="sidebar-item">
+							<a href="#pages" data-toggle="collapse" class="sidebar-link collapsed">
+                			<i class="align-middle" data-feather="layers"></i> <span class="align-middle">Fiches clients</span>
+             				</a>
+							<ul id="pages" class="sidebar-dropdown list-unstyled collapse ">
+								<li class="sidebar-item"><a class="sidebar-link" href="{% url 'liste_fiche_client' %}"><i class="align-middle" data-feather="layers"></i> <span class="align-middle">Les clients</a></li>
+								<li class="sidebar-item"><a class="sidebar-link" href="{% url 'create_client' %}"><i class="align-middle" data-feather="file-plus"></i> <span class="align-middle">Créer client</a></li>
+								
+							</ul>
+						</li>
+
+						<li class="sidebar-header">
+							Equipe
+						</li>
+
+						<li class="sidebar-item active">
+							<a href="{% url 'technicien' %}" class="sidebar-link">
+                			<i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Techniciens</span>
+                			
+              				</a>
+						</li>
+
+						<li class="sidebar-header">
+							Vélo
+						</li>
+
+						<li class="sidebar-item">
+							<a href="#pages3" data-toggle="collapse" class="sidebar-link collapsed">
+                			<i class="align-middle" data-feather="layout"></i> <span class="align-middle">Vélos</span>
+             				</a>
+							<ul id="pages3" class="sidebar-dropdown list-unstyled collapse ">
+								<li class="sidebar-item"><a class="sidebar-link" href="{% url 'liste_velo' %}"><i class="align-middle" data-feather="layers"></i> <span class="align-middle">Liste</a></li>
+								<li class="sidebar-item"><a class="sidebar-link" href="{% url 'create_velo' %}"><i class="align-middle" data-feather="file-plus"></i> <span class="align-middle">Ajouter</a></li>
+							</ul>
+						</li>
+
+						<li class="sidebar-item">
+							<a href="#pages4" data-toggle="collapse" class="sidebar-link collapsed">
+                			<i class="align-middle" data-feather="x-square"></i> <span class="align-middle">incidents </span>{% if nb_incident_f > 0 %}<span class="sidebar-badge badge badge-danger">{{nb_incident_f}}</span>{% endif %}
+             				</a>
+							<ul id="pages4" class="sidebar-dropdown list-unstyled collapse ">
+								<li class="sidebar-item"><a class="sidebar-link" href="{% url 'liste_incident' %}"><i class="align-middle" data-feather="layers"></i> <span class="align-middle">Liste</a></li>
+								<li class="sidebar-item"><a class="sidebar-link" href="{% url 'page_type_incident_client' %}"><i class="align-middle" data-feather="edit"></i> <span class="align-middle">Types d'incident</a></li>
+								<li class="sidebar-item"><a class="sidebar-link" href="{% url 'page_type_incident_technicien' %}"><i class="align-middle" data-feather="edit"></i> <span class="align-middle">Types réparation</a></li>
+							</ul>
+						</li>
+						{% endif %}
+
+						{% if technicien %}
+						<li class="sidebar-header">
+							Générale
+						</li>
+						<li class="sidebar-item active">
+							<a href="{% url 'liste_incident' %}" class="sidebar-link">
+                			<i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Liste Incidents</span>
+              				</a>
+						</li>
+						
+						{% endif %}
+
+						{% if client %}
+						<li class="sidebar-header">
+							Générale
+						</li>
+						<li class="sidebar-item active">
+							<a href="{% url 'indexEquipe' %}" class="sidebar-link">
+                			<i class="align-middle" data-feather="home"></i> <span class="align-middle">Dashboard</span>
+              				</a>
+						</li>
+							{% for ob in liste_des_magasin %}
+							<li class="sidebar-item">
+								<a href="#pages3{{ob.id}}" data-toggle="collapse" class="sidebar-link collapsed">
+	                			<i class="align-middle" data-feather="layout"></i> <span class="align-middle">{{ob.enseigne}}</span>
+	             				</a>
+								<ul id="pages3{{ob.id}}" class="sidebar-dropdown list-unstyled collapse ">
+									<li class="sidebar-item"><a class="sidebar-link" href="{% url 'page_fiche_client' ob.id %}"><i class="align-middle" data-feather="layers"></i> <span class="align-middle">Information</a></li>
+									<li class="sidebar-item"><a class="sidebar-link" href="{% url 'flotte' ob.id %}" ><i class="align-middle" data-feather="layers"></i> <span class="align-middle">Flotte</a></li>
+									<li class="sidebar-item"><a class="sidebar-link" href="{% url 'liste_incidents_client' ob.id %}"><i class="align-middle" data-feather="layers"></i> <span class="align-middle">Incidents</a></li>
+									
+								</ul>
+							</li>
+							{% endfor %}
+
+						{% endif %}
+						
+
+
+
+						<!--
+						<li class="sidebar-item">
+							<a class="sidebar-link" href="documentation.html">
+                			<i class="align-middle" data-feather="book-open"></i> <span class="align-middle">Vélos</span>
+              				</a>
+						</li> -->
+
+
+
+						
+					</ul>
+
+				</div>
+			</nav>
+
+			<div class="main">
+				<nav class="navbar navbar-expand navbar-light bg-white">
+					<a class="sidebar-toggle d-flex mr-2">
+            <i class="hamburger align-self-center"></i>
+          </a>
+
+					
+
+					<div class="navbar-collapse collapse">
+						<ul class="navbar-nav ml-auto">
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="userDropdown" data-toggle="dropdown">
+                  <span class="d-inline-block d-md-none">
+                    <i class="align-middle" data-feather="settings"></i>
+                  </span>
+                  <span class="d-none d-sm-inline-block">
+                  <span class="text-dark">{{request.user}}</span>
+                  </span>
+                </a>
+								<div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+									<a class="dropdown-item" href="{% url 'account_change_password' %}">Changer mot de passe</a>
+									<a class="dropdown-item" href="{% url 'account_logout' %}">déconnexion</a>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</nav>
+
+				<main class="content">
+					<div class="container-fluid p-0">
+					{% block content %}
+						
+					{% endblock %}
+					</div>
+				</main>
+
+				<footer class="footer" >
+					<div class="container-fluid">
+						<div class="row text-muted">
+							<div class="col-6 text-left">
+								<ul class="list-inline">
+									<li class="list-inline-item">
+										<a class="text-muted" href="#">Support</a>
+									</li>
+									<li class="list-inline-item">
+										<a class="text-muted" href="#">Centre d'aide</a>
+									</li>
+									<li class="list-inline-item">
+										<a class="text-muted" href="#">RDPG</a>
+									</li>
+									<li class="list-inline-item">
+										<a class="text-muted" href="#">CGU</a>
+									</li>
+								</ul>
+							</div>
+							<div class="col-6 text-right">
+								<p class="mb-0">
+									&copy; 2018 - <a href="index.html" class="text-muted">Velyvelo</a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+	</div>
+
+	<script src="{% static 'equipe/js/app.js' %}"></script>
+	<script src="{% static 'equipe/js/charts.js' %}"></script>
+	<script src="{% static 'equipe/js/forms.js' %}"></script>
+	<script src="{% static 'equipe/js/maps.js' %}"></script>
+	<script src="{% static 'equipe/js/tables.js' %}"></script>
+</body>
+
+</html>

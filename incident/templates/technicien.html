@@ -1,0 +1,106 @@
+{% extends 'baseEquipe.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="clearfix">
+	<h1 class="h3 mb-3">Liste des techniciens</h1>
+</div>
+
+<div class="row">
+	<div class="col-12">
+		<div class="card">
+			<div class="card-header">
+				<h5 class="card-title">Liste des techniciens</h5>
+				<h6 class="card-subtitle text-muted">Les techniciens archivés ne sont pas dans la liste.</h6>
+			</div>
+			<div class="card-body">
+				<table id="datatables-basic" class="table table-striped" style="width:100%">
+					<thead>
+						<tr>
+							<th>Prénom</th>
+							<th>Nom</th>
+							<th>Téléphone</th>
+							<th>Email</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for ob in liste_des_technicien %}
+						<tr>
+							<td>{{ob.prenom}}</td>
+							<td>{{ob.nom}}</td>
+							<td>{{ob.telephone}}</td>
+							<td>{{ob.mail}}</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+					
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-12 col-xl-12">
+		<div class="card">
+			<div class="card-header">
+				<h5 class="card-title">Nouveau Technicien</h5>
+				<h6 class="card-subtitle text-muted">Formulaire</h6>
+			</div>
+			<div class="card-body">
+				<form  method='POST'  action=''> {% csrf_token %}  
+					<div class="form-group">
+						<label class="form-label">Adresse Email</label>
+						<input type="email" class="form-control" placeholder="Email" name="mail" required>
+					</div>
+					<div class="form-group">
+						<label class="form-label">Prénom</label>
+						<input type="text" class="form-control" placeholder="Prénom" name="prenom" required>
+					</div>
+					<div class="form-group">
+						<label class="form-label">Nom</label>
+						<input type="text" class="form-control" placeholder="Nom"  name="nom" required>
+					</div>
+					<div class="form-group">
+						<label class="form-label">Téléphone</label>
+						<input type="text" class="form-control" placeholder="Téléphone"  name="tel" required>
+					</div>
+					
+					
+					<input style="float: right;" type="submit" class="btn btn-primary" name="create_technicien" value="Ajouter un technicien">
+					
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+	<script>
+		document.addEventListener("DOMContentLoaded", function(event) {
+			// Datatables basic
+			$('#datatables-basic').DataTable({
+				responsive: true,
+				aLengthMenu: [
+        [100, 200, -1],
+        [100, 200, "All"]
+    ],
+			});
+
+			// Datatables with Buttons
+			var datatablesButtons = $('#datatables-buttons').DataTable({
+				lengthChange: !1,
+				buttons: ["copy", "print"],
+				responsive: true
+			});
+			datatablesButtons.buttons().container().appendTo("#datatables-buttons_wrapper .col-md-6:eq(0)")
+		});
+
+	
+    
+
+
+	</script>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Application Web - Velyvelo">
+	<meta name="author" content="Ebrain">
+
+	<title>Application Web - Velyvelo - 404</title>
+	<link rel="icon" type="image/x-icon" href="{% static 'equipe/img/icone.ico' %}" />
+	<link href="{% static 'equipe/css/app.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+	<main class="main h-100 w-100">
+		<div class="container h-100">
+			<div class="row h-100">
+				<div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
+					<div class="d-table-cell align-middle">
+
+						<div class="text-center">
+							<h1 class="display-1 font-weight-bold">404</h1>
+							<p class="h1">Velyvelo ne trouve pas la page.</p>
+							<p class="h2 font-weight-normal mt-3 mb-4">Si le problème persiste contactez-nous.</p>
+							<a href="{% url 'indexEquipe' %}" class="btn btn-primary btn-lg">Retourne sur le site</a>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<script src="{% static 'equipe/js/app.js' %}"></script>
+
+</body>
+
+</html>

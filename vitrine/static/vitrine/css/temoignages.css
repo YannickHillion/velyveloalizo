@@ -1,0 +1,79 @@
+ @import url('https://fonts.googleapis.com/css?family=Fredoka+One');
+ @import url('https://fonts.googleapis.com/css?family=Fredoka+One|Varela+Round');
+
+.varela{
+    font-family: 'Varela Round', sans-serif;
+}
+.fredoka
+{
+    font-family:  'Fredoka One', sans-serif;
+}
+
+.temoignage-container
+{
+    background-color: #F4F7FC;
+}
+.title-temoignage
+{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    position: relative;
+    font-size: 27px;
+    font-weight: bold;
+    color: #000000;
+    margin-left: auto;
+    margin-right: auto;
+}
+.block-temoignage
+{
+    background-color: white;
+    margin: 20px;
+}
+.div-icone-enseigne
+{
+    width: 100%;
+    height: 104px;
+}
+.icone-enseigne
+{
+    width: 60%;
+}
+
+.guillemets
+{
+    width: 7%;
+}
+.image-personne-temoignage
+{
+    width: 125%;
+}
+.nom-enseigne
+{
+    color:#EB5B40;
+}
+.block-temoignage-top
+{
+    margin-left: 9.5%;
+}
+
+@media(max-width: 768px)
+{
+    .block-temoignage
+    {
+            margin-left: auto;
+    margin-right: auto;
+    }   
+
+    .block-temoignage-top
+    {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+@media(max-width: 930px)
+{
+    .title-temoignage
+    {
+        margin-top: 100px;
+    }
+}
